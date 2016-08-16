@@ -8,7 +8,8 @@
     "start": "node webpack-dev-server",
     "build": "webpack -p -progress --colors --optimize-minimize",
     "release": "release-it",
-    "release-asset": "node release-asset.js"
+    "release-asset": "node release-asset.js",
+    "lint": "./node_modules/.bin/eslint -c .eslintrc app/ && ./node_modules/.bin/eslint -c .eslintrc test/"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,11 @@
   "homepage": "https://github.com/nens/rapportage#readme",
   "devDependencies": {
     "css-loader": "^0.23.1",
+    "eslint": "^2.10.2",
+    "eslint-config-airbnb-es5": "^1.0.9",
+    "eslint-plugin-react": "^6.1.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "html-webpack-plugin": "^2.22.0",
     "jasmine-core": "^2.4.1",
     "karma": "^1.2.0",
     "karma-firefox-launcher": "^1.0.0",
@@ -36,6 +42,7 @@
     "node-sass": "^3.8.0",
     "sass-loader": "^4.0.0",
     "style-loader": "^0.13.1",
+    "text-loader": "0.0.1",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1"
   },
