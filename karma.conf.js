@@ -1,7 +1,7 @@
 // Karma configuration
 // Generated on Tue Aug 16 2016 10:35:40 GMT+0200 (CEST)
 
-module.exports = function(config) {
+module.exports = function (config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
@@ -15,8 +15,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'app/**/*.js',
-      'tests/**/*.js'
+      'tests/tests_index.js'
     ],
 
 
@@ -28,6 +27,7 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+      'tests/tests_index.js': ['webpack']
     },
 
 
@@ -65,6 +65,20 @@ module.exports = function(config) {
 
     // Concurrency level
     // how many browser should be started simultaneous
-    concurrency: Infinity
-  })
-}
+    concurrency: Infinity,
+
+    webpack: {
+      // karma watches the test entry points
+      // (you don't need to specify the entry option)
+      // webpack watches dependencies
+
+      // webpack configuration
+    },
+
+    webpackMiddleware: {
+      // webpack-dev-middleware configuration
+      // i. e.
+      stats: 'errors-only'
+    }
+  });
+};

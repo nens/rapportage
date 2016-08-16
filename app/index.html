@@ -12,7 +12,22 @@
 
   </head>
   <body>
+    <div class="container" ng-controller="MainCtrl">
+      <branded-header></branded-header>
+      <div class="row">
+        <date-picker class="col-md-4 offset-md-8"></date-picker>
+      </div>
+      <div class="row">
+        <rain-map-widget class="col-sm-6" title="Maandelijks cumulatief"></rain-map-widget>
+        <rain-map-widget class="col-sm-6" title="Topbui"></rain-map-widget>
+      </div>
 
-    <!-- <script type="text/javascript" src="bundle.js"></script> -->
+      <div class="row">
+        <rain-recurrence-time></rain-recurrence-time>
+      </div>
+      <div class="row">
+        <rain-graph></rain-graph>
+      </div>
+    </div>
   </body>
 </html>

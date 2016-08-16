@@ -25,11 +25,15 @@ const config = {
       },
       { test: /\.json$/, loader: 'json'},
       { test: /\.html$/, loader: 'text' },
-      { test: /.(png|jpg|gif|woff(2)?|eot|ttf|svg)(\?[a-z0-9=\.]+)?$/, loader: 'url-loader?limit=18192' }
+      { test: /.(png|jpg|gif|woff(2)?|eot|ttf|svg)(\?[a-z0-9=\.]+)?$/, loader: 'url-loader?limit=18192' },
+      { test: /bootstrap\/dist\/js\/umd\//, loader: 'imports?jQuery=jquery' }
     ]
   },
   plugins: [
     new ExtractTextPlugin('[name].css', {allChunks: true}),
+    new webpack.ProvidePlugin({
+      'window.Tether': 'tether'
+    }),
     new webpack.optimize.DedupePlugin(),
     new HtmlWebpackPlugin({
       template: path.resolve('app', 'index.html'),
@@ -41,7 +45,7 @@ const config = {
       browsers: ['last 2 versions']
     })
   ],
-  devtool: 'eval-source-map',
+  devtool: 'eval-source-map'
 };
 
 module.exports = config;
