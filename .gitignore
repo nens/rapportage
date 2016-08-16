@@ -35,3 +35,12 @@ jspm_packages
 
 # Optional REPL history
 .node_repl_history
+
+# build step thingies
+tmp/
+dist/
+
+# ansible stuffs
+deploy/auth.json
+deploy/hosts
+deploy.retry

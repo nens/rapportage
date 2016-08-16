@@ -1,0 +1,5 @@
+build_user: buildout
+
+repo_name: rapportage
+
+version: 1.0.5
