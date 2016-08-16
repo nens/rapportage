@@ -4,7 +4,11 @@
   "description": "reporting for municipalities",
   "main": "index.js",
   "scripts": {
-    "test": "tape tests/*"
+    "test": "karma start",
+    "start": "node webpack-dev-server",
+    "build": "webpack -p -progress --colors --optimize-minimize",
+    "release": "release-it",
+    "release-asset": "node release-asset.js"
   },
   "repository": {
     "type": "git",
@@ -25,7 +29,9 @@
     "css-loader": "^0.23.1",
     "jasmine-core": "^2.4.1",
     "karma": "^1.2.0",
+    "karma-firefox-launcher": "^1.0.0",
     "karma-jasmine": "^1.0.2",
+    "karma-nyan-reporter": "^0.2.4",
     "karma-phantomjs-launcher": "^1.0.1",
     "node-sass": "^3.8.0",
     "sass-loader": "^4.0.0",
