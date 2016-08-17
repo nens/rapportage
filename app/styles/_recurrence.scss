@@ -8,13 +8,14 @@
 }
 
 .recurrence-content.show {
-  visibility: visible;
   opacity: 1;
   height: 100%;
+  display: block;
 }
 
 .recurrence-content {
   opacity: 0;
-  height: 0;
-  transition: opacity 0.5s, height 0.3s, linear;
+  height: 0px;
+  display: none;
+  transition: display 0.4s, opacity 0.5s, height 0.3s, linear;
 }

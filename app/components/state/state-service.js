@@ -1,3 +1,10 @@
+var DEFAULTS = {
+  reportType: 'neerslag',
+  city: 'Utrecht',
+  year: '2016',
+  month: '08'
+};
+
 var StateService = function (UtilService) {
   var _state = {};
 
@@ -24,6 +31,9 @@ var StateService = function (UtilService) {
   };
 
   _state.set = function (string, item, callee) {
+    if (!item || item === '') {
+      item = DEFAULTS[string];
+    }
     _state[string] = item;
     _state.changed(callee, string);
     return _state;
@@ -43,6 +53,11 @@ var StateService = function (UtilService) {
     var newDate = new Date();
     newDate.setMonth(parseInt(_state.get('month') - 1));
     newDate.setYear(parseInt(_state.get('year')));
+    newDate.setDate(1);
+    newDate.setHours(0);
+    newDate.setMinutes(0);
+    newDate.setSeconds(1);
+    newDate.setMilliseconds(0);
     _state.set('date', newDate, 'StateService');
   };
 

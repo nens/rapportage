@@ -15,7 +15,8 @@ var leafletMap = function (StateService) {
       scrollWheelZoom: false,
       doubleClickZoom: false,
       dragging: false,
-      keyboard: false
+      keyboard: false,
+      attributionControl: false
     });
     var updateMapBounds = function (bounds) {
       if (bounds) {
@@ -23,9 +24,25 @@ var leafletMap = function (StateService) {
       }
     };
 
-    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
+    scope.layers.forEach(function (layer) {
+      if (layer.type === 'tms') {
+        L.tileLayer(layer.url, {
+        }).addTo(map);
+      } else if (layer.type === 'wms') {
+        L.tileLayer.wms(layer.url, {
+          layers: layer.layers,
+          styles: layer.styles,
+          format: 'image/png',
+          time: layer.time,
+          transparent: true,
+          minZoom: 1,
+          maxZoom: 18,
+          zIndex: 20,
+          unloadInvisibleTiles: true
+        }).addTo(map);
+      }
+    });
+
     StateService.on('change:bounds', updateMapBounds, 'Leaflet' + scope.$id);
   };
 

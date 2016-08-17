@@ -24,7 +24,9 @@ var rainMapWidget = function (StateService) {
     link: rainMapWidgetLink,
     replace: true,
     restrict: 'E',
-    scope: {},
+    scope: {
+      layers: '='
+    },
     template: require('./rain-map-widget.html')
   };
 };

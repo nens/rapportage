@@ -18,7 +18,7 @@ const config = {
   module: {
     loaders: [
       {
-        test: /\.scss$/,
+        test: /\.(scss|css)$/,
         // loader: ExtractTextPlugin.extract('style-loader', sassLoaders.join('!'))
         loader: ExtractTextPlugin.extract('css!sass')
         // loaders: ["style", "css", "sass"]

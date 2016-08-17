@@ -8,14 +8,18 @@
     <table class="table col-md-12">
       <thead>
         <tr>
-          <th>Tijd</th>
-          <th>Bui</th>
+          <th>Start</th>
+          <th>Duur</th>
+          <th>Neerslag</th>
+          <th>Herhalingstijd</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>3</td>
-          <td>groot</td>
+        <tr ng-repeat="rrc in recurrenceData">
+          <td>{{ rrc.start | date: 'dd-MM-yyyy HH:mm'}}</td>
+          <td>{{ rrc.td_window }}</td>
+          <td>{{ rrc.max | number: 2}}</td>
+          <td>{{ rrc.t }}</td>
         </tr>
       </tbody>
     </table>

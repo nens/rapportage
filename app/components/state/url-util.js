@@ -18,12 +18,11 @@ var UrlUtil = function (StateService, $location) {
     'month'
   ];
 
-  var path = $location.$$path.split('/');
-
   /*
    * update the StateService according to the state.
    */
   var updateStateWithUrl = function () {
+    var path = $location.$$path.split('/');
     _urlDefinition.forEach(function (urldef, index) {
       StateService.set(urldef, path[index], 'UrlUtil');
     });
@@ -34,10 +33,8 @@ var UrlUtil = function (StateService, $location) {
     _urlDefinition.forEach(function (urldef) {
       newPath.push(StateService.get(urldef));
     });
-    $location.$$path = newPath.join('/');
+    $location.path(newPath.join('/'));
   };
-
-
 
   // register callback
   StateService.on('change', updateUrlWithState, 'UrlUtil');

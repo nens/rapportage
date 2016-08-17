@@ -13,13 +13,21 @@
   </head>
   <body>
     <div class="container" ng-controller="MainCtrl">
+
+      <date-picker></date-picker>
+
       <branded-header></branded-header>
+
       <div class="row">
-        <date-picker class="col-md-4 offset-md-8"></date-picker>
-      </div>
-      <div class="row">
-        <rain-map-widget class="col-sm-6" title="Maandelijks cumulatief"></rain-map-widget>
-        <rain-map-widget class="col-sm-6" title="Topbui"></rain-map-widget>
+
+        <rain-map-widget class="col-sm-6" title="Maandelijks cumulatief"
+          layers="layersMonthly">
+        </rain-map-widget>
+
+        <rain-map-widget class="col-sm-6" title="Topbui"
+          layers="layersMax">
+        </rain-map-widget>
+
       </div>
 
       <rain-recurrence-time location="location" ng-repeat="location in locations"></rain-recurrence-time>
@@ -27,6 +35,7 @@
       <div class="row">
         <rain-graph></rain-graph>
       </div>
+
     </div>
   </body>
 </html>

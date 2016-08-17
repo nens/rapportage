@@ -10,12 +10,13 @@ var brandedHeader = function (StateService) {
   */
   var brandedHeaderLink = function (scope) {
     var updateScope = function () {
+      console.log('aj hoor', StateService.get('date'), StateService)
       scope.city = StateService.get('city');
       scope.reportType = StateService.get('reportType');
       scope.date = StateService.get('date');
     };
 
-    updateScope(StateService);
+    updateScope();
 
     StateService.on('change', updateScope, 'brandedHeader');
   };
