@@ -24,7 +24,6 @@ var UrlUtil = function (StateService, $location) {
    * update the StateService according to the state.
    */
   var updateStateWithUrl = function () {
-    console.log('bla')
     _urlDefinition.forEach(function (urldef, index) {
       StateService.set(urldef, path[index], 'UrlUtil');
     });

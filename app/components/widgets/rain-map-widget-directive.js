@@ -5,6 +5,7 @@ var rainMapWidget = function (StateService) {
   *
   * @param  {object} scope - local watchable scope of directive
   * @param  {object} elem  - dom element.
+  * @param  {object} attrs - contents of the attributes
   * @return {object}       - Object with angular config
   */
   var rainMapWidgetLink = function (scope, elem, attrs) {
@@ -16,7 +17,7 @@ var rainMapWidget = function (StateService) {
 
     updateScope(StateService);
 
-    StateService.on('change', updateScope, 'rainMapWidget');
+    StateService.on('change', updateScope, 'rainMapWidget' + scope.$id);
   };
 
   return {
