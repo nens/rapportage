@@ -1,0 +1,20 @@
+.recurrence-title {
+  cursor: pointer;
+  width: 100%;
+  background: lighten($turquoise, 10%);
+  text-transform: capitalize;
+  padding: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.recurrence-content.show {
+  visibility: visible;
+  opacity: 1;
+  height: 100%;
+}
+
+.recurrence-content {
+  opacity: 0;
+  height: 0;
+  transition: opacity 0.5s, height 0.3s, linear;
+}

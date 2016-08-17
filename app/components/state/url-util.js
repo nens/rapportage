@@ -37,6 +37,8 @@ var UrlUtil = function (StateService, $location) {
     $location.$$path = newPath.join('/');
   };
 
+
+
   // register callback
   StateService.on('change', updateUrlWithState, 'UrlUtil');
 

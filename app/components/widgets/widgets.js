@@ -7,4 +7,5 @@ angular.module('widgets', [
   'leaflet-map'
 ])
   .directive('datePicker', require('./date-picker-directive'))
-  .directive('rainMapWidget', require('./rain-map-widget-directive'));
+  .directive('rainMapWidget', require('./rain-map-widget-directive'))
+  .directive('rainRecurrenceTime', require('./rain-recurrence-directive'));

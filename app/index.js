@@ -12,8 +12,14 @@ var app = angular.module('rapportage', [
   'widgets'
 ]);
 
-app.controller('MainCtrl', function (UrlUtil) {
-  UrlUtil.updateStateWithUrl();
+app.controller('MainCtrl', function ($scope, UrlUtil) {
+  $scope.$watch('$routeUpdate', UrlUtil.updateStateWithUrl);
+  $scope.locations = [{
+    title: 'location1'
+  },
+  {
+    title: 'location2'
+  }];
 });
 
 module.exports = app;

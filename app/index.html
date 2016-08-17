@@ -22,9 +22,8 @@
         <rain-map-widget class="col-sm-6" title="Topbui"></rain-map-widget>
       </div>
 
-      <div class="row">
-        <rain-recurrence-time></rain-recurrence-time>
-      </div>
+      <rain-recurrence-time location="location" ng-repeat="location in locations"></rain-recurrence-time>
+
       <div class="row">
         <rain-graph></rain-graph>
       </div>
