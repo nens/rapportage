@@ -1,4 +1,4 @@
-var rainMapWidget = function (StateService) {
+var rainMapWidget = function () {
   /**
   * rainMapWidgetLink - this makes the branded header work. The link
   * function is called on initiating the dom elem.
@@ -9,15 +9,7 @@ var rainMapWidget = function (StateService) {
   * @return {object}       - Object with angular config
   */
   var rainMapWidgetLink = function (scope, elem, attrs) {
-    var updateScope = function () {
-      scope.date = StateService.get('date');
-    };
-
     scope.title = attrs.title;
-
-    updateScope(StateService);
-
-    StateService.on('change', updateScope, 'rainMapWidget' + scope.$id);
   };
 
   return {
@@ -25,7 +17,8 @@ var rainMapWidget = function (StateService) {
     replace: true,
     restrict: 'E',
     scope: {
-      layers: '='
+      layers: '=',
+      bounds: '='
     },
     template: require('./rain-map-widget.html')
   };

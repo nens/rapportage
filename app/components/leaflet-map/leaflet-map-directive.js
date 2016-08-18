@@ -1,6 +1,6 @@
 var L = require('leaflet');
 
-var leafletMap = function (StateService) {
+var leafletMap = function () {
   /**
   * leafletMapLink - this makes the branded header work. The link
   * function is called on initiating the dom elem.
@@ -43,7 +43,7 @@ var leafletMap = function (StateService) {
       }
     });
 
-    StateService.on('change:bounds', updateMapBounds, 'Leaflet' + scope.$id);
+    scope.$watch('bounds', updateMapBounds);
   };
 
   return {
@@ -51,7 +51,8 @@ var leafletMap = function (StateService) {
     replace: true,
     restrict: 'E',
     scope: {
-      layers: '='
+      layers: '=',
+      bounds: '='
     },
     template: require('./leaflet-map.html')
   };

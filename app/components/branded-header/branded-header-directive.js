@@ -1,5 +1,5 @@
 
-var brandedHeader = function (StateService) {
+var brandedHeader = function () {
   /**
   * brandedHeaderLink - this makes the branded header work. The link
   * function is called on initiating the dom elem.
@@ -8,23 +8,19 @@ var brandedHeader = function (StateService) {
   * @param  {object} elem  - dom element.
   * @return {object}       - Object with angular config
   */
-  var brandedHeaderLink = function (scope) {
-    var updateScope = function () {
-      console.log('aj hoor', StateService.get('date'), StateService)
-      scope.city = StateService.get('city');
-      scope.reportType = StateService.get('reportType');
-      scope.date = StateService.get('date');
-    };
-
-    updateScope();
-
-    StateService.on('change', updateScope, 'brandedHeader');
+  var brandedHeaderLink = function () {
+    //
   };
 
   return {
     link: brandedHeaderLink,
     replace: true,
     restrict: 'E',
+    scope: {
+      city: '=',
+      reportType: '=',
+      date: '='
+    },
     template: require('./branded-header.html')
   };
 };

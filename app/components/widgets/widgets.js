@@ -6,7 +6,7 @@ require('../api/api');
 angular.module('widgets', [
   'state',
   'leaflet-map',
-  'api',
+  'api'
 ])
   .directive('datePicker', require('./date-picker-directive'))
   .directive('rainMapWidget', require('./rain-map-widget-directive'))

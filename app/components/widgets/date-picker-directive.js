@@ -1,4 +1,4 @@
-var datePicker = function (StateService) {
+var datePicker = function () {
   /**
   * datePickerLink - this makes the branded header work. The link
   * function is called on initiating the dom elem.
@@ -23,20 +23,17 @@ var datePicker = function (StateService) {
       'december'
     ];
     scope.years = [];
-
-    var updateScope = function () {
-      scope.month = StateService.get('month');
-      scope.year = StateService.get('year');
-
-      scope.activeYear = scope.years[scope.indexOf(scope.year)];
-      scope.activeMonth =  scope.months[scope.indexOf(parseInt(scope.month) - 1)];
-    };
-
     var populateYears = function () {
       var year = new Date().getFullYear();
       for (var i = 0; i < 30; i++) {
         scope.years.push(year - i);
       }
+    };
+    populateYears();
+
+    var updateScope = function () {
+      scope.activeYear = scope.years[scope.years.indexOf(parseInt(scope.year))];
+      scope.activeMonth = scope.months[(parseInt(scope.month) - 1)];
     };
 
     scope.setMonth = function () {
@@ -44,23 +41,27 @@ var datePicker = function (StateService) {
       if (parseInt(newMonth) < 10) {
         newMonth = '0' + newMonth;
       }
-      StateService.set('month', newMonth, 'datePicker');
+      scope.month = newMonth;
     };
 
     scope.setYear = function () {
-      StateService.set('year', scope.activeYear, 'datePicker');
+      scope.year = scope.activeYear;
     };
 
-    populateYears();
     updateScope();
-    StateService.on('change', updateScope, 'datePicker');
+
+    scope.$watch('month', updateScope);
+    scope.$watch('year', updateScope);
   };
 
   return {
     link: datePickerLink,
     replace: true,
     restrict: 'E',
-    scope: {},
+    scope: {
+      'month': '=month',
+      'year': '=year'
+    },
     template: require('./date-picker.html')
   };
 };

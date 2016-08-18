@@ -2,11 +2,10 @@
  * UrlUtil - detects what elements are on the path and adjusts the state
  * accordingly, and vice versa.
  *
- * @param  {object} StateService -
  * @param  {object} $location   -
  * @return {void}
  */
-var UrlUtil = function (StateService, $location) {
+var UrlUtil = function ($location) {
   /**
    * defines the parts of the url (there are 4 parts first is empty)
    */
@@ -23,21 +22,23 @@ var UrlUtil = function (StateService, $location) {
    */
   var updateStateWithUrl = function () {
     var path = $location.$$path.split('/');
+    var newState = {};
     _urlDefinition.forEach(function (urldef, index) {
-      StateService.set(urldef, path[index], 'UrlUtil');
+      if (path[index]) {
+        newState[urldef] = path[index];
+      }
     });
+
+    return newState;
   };
 
-  var updateUrlWithState = function () {
+  var updateUrlWithState = function (state) {
     var newPath = [];
     _urlDefinition.forEach(function (urldef) {
-      newPath.push(StateService.get(urldef));
+      newPath.push(state[urldef]);
     });
     $location.path(newPath.join('/'));
   };
-
-  // register callback
-  StateService.on('change', updateUrlWithState, 'UrlUtil');
 
   return {
     updateUrlWithState: updateUrlWithState,

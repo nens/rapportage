@@ -14,26 +14,37 @@
   <body>
     <div class="container" ng-controller="MainCtrl">
 
-      <date-picker></date-picker>
+      <date-picker year="state.year" month="state.month"></date-picker>
 
-      <branded-header></branded-header>
+      <branded-header city="state.city" report-type="state.reportType" date="state.date"></branded-header>
 
       <div class="row">
 
-        <rain-map-widget class="col-sm-6" title="Maandelijks cumulatief"
-          layers="layersMonthly">
+        <rain-map-widget class="col-sm-6"
+          title="Maandelijks cumulatief"
+          layers="layersMonthly"
+          bounds="state.bounds"
+        >
         </rain-map-widget>
 
-        <rain-map-widget class="col-sm-6" title="Topbui"
-          layers="layersMax">
+        <rain-map-widget class="col-sm-6"
+          title="Topbui"
+          layers="layersMax"
+          bounds="state.bounds"
+        >
         </rain-map-widget>
 
       </div>
 
-      <rain-recurrence-time location="location" ng-repeat="location in locations"></rain-recurrence-time>
+      <rain-recurrence-time
+        location="location"
+        date="$parent.state.date"
+        ng-repeat="location in locations"
+        >
+      </rain-recurrence-time>
 
       <div class="row">
-        <rain-graph></rain-graph>
+        <rain-graph year="state.year" bounds="state.bounds"></rain-graph>
       </div>
 
     </div>
