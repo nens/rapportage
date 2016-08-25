@@ -13,24 +13,41 @@ var rainGraphWidget = function (ApiService) {
   * @return {object}       - Object with angular config
   */
   var rainGraphWidgetLink = function (scope, elem) {
+    var months = ['jan', 'feb', 'mrt', 'apr', 'mei', 'jun', 'jul', 'aug',
+      'sep', 'okt', 'nov', 'dec'];
     var chart = nv.models.multiBarChart()
-      .x(function (d) { return Date.parse(d[0]); })
-      .y(function (d) {
-        console.log(d)
-        return d[1];
-      })
-      .reduceXTicks(true)   // If 'false', every single x-axis tick label will be rendered.
-      .rotateLabels(0)      // Angle to rotate x-axis labels.
-      .showControls(true)   // Allow user to switch between 'Grouped' and 'Stacked' mode.
+      .x(function (d) { return months[new Date(d[0] + 1296000000).getUTCMonth()]; })
+      .y(function (d) { return d[1] / 265254071 * 1000; })
+      .wrapLabels(true)
+      .reduceXTicks(false)   // If 'false', every single x-axis tick label will be rendered.
+      .showControls(false)   // Allow user to switch between 'Grouped' and 'Stacked' mode.
       .groupSpacing(0.1);   // Distance between each group of bars. // transitionDuration
 
     var doChart = function () {
       if (scope.bounds && scope.year) {
-        console.log(elem[0])
+        console.log(elem[0], scope.bounds, scope.year);
         ApiService.getMonthlyRain(scope.bounds, scope.year).then(function (data) {
           d3.select(elem[0])
           .datum([{
+            'key': 'Meerjaarlijks gemiddelde',
+            'color': '#bdc3c7',
+            'values': [
+              [Date.parse('Jan 1 2016'), 1 * 265254],
+              [Date.parse('Feb 1 2016'), 1 * 265254],
+              [Date.parse('Mar 1 2016'), 1 * 265254],
+              [Date.parse('Apr 1 2016'), 1 * 265254],
+              [Date.parse('May 1 2016'), 1 * 265254],
+              [Date.parse('Jun 1 2016'), 1 * 265254],
+              [Date.parse('Jul 1 2016'), 1 * 265254],
+              [Date.parse('Aug 1 2016'), 1 * 265254],
+              [Date.parse('Sep 1 2016'), 1 * 265254],
+              [Date.parse('Oct 1 2016'), 1 * 265254],
+              [Date.parse('Nov 1 2016'), 1 * 265254],
+              [Date.parse('Dec 1 2016'), 1 * 265254]
+            ]
+          }, {
             'key': 'timeseries',
+            'color': '#16a085',
             'values': data
           }])
           .call(chart);
@@ -39,15 +56,12 @@ var rainGraphWidget = function (ApiService) {
     };
 
     nv.addGraph(function () {
-      chart.xAxis
-      .tickFormat(d3.format(',f'));
-
       chart.yAxis
       .tickFormat(d3.format(',.1f'));
 
       doChart();
 
-      nv.utils.windowResize(chart.update);
+      nv.utils.windowResize(doChart);
 
       return chart;
     });
