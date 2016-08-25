@@ -57,7 +57,8 @@ var rainGraphWidget = function (ApiService) {
 
     nv.addGraph(function () {
       chart.yAxis
-      .tickFormat(d3.format(',.1f'));
+      .tickFormat(d3.format(',.1f'))
+      .axisLabel('Regen (mm)');
 
       doChart();
 
