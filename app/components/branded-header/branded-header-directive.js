@@ -8,8 +8,8 @@ var brandedHeader = function () {
   * @param  {object} elem  - dom element.
   * @return {object}       - Object with angular config
   */
-  var brandedHeaderLink = function () {
-    //
+  var brandedHeaderLink = function (scope, element, attrs) {
+    scope.city = 'Apeldoorn'
   };
 
   return {
@@ -17,7 +17,6 @@ var brandedHeader = function () {
     replace: true,
     restrict: 'E',
     scope: {
-      city: '=',
       reportType: '=',
       date: '='
     },

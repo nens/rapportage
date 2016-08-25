@@ -15,52 +15,14 @@ var app = angular.module('rapportage', [
 ]);
 
 app.controller('MainCtrl', function ($scope, $route, UrlUtil, StateService) {
-  $scope.state = {};
 
-  var updateStateWithUrl = function () {
-    $scope.fromUrl = true;
-    angular.extend($scope.state, UrlUtil.updateStateWithUrl());
-    // otherwise anglar doesn't register the change. This is called
-    // from a non-angular event handler
-    if (!$scope.$$phase) {
-      $scope.$apply();
-    }
+  $scope.state = {
+    city: 'Apeldoorn',
+    date: Date.now(),
+    bounds: {},
+    month: '08',
+    year: '2015'
   };
-
-  var updateDate = function () {
-    $scope.state.date = StateService.updateDate($scope.state);
-
-    if ($scope.fromUrl) {
-      UrlUtil.updateUrlWithState($scope.state);
-    }
-    $scope.fromUrl = false;
-  };
-
-  var updateBounds = function (city) {
-    StateService.updateBounds(city).then(function (bounds) {
-      $scope.state.bounds = bounds;
-    });
-  };
-
-  updateStateWithUrl();
-  updateDate();
-  updateBounds();
-
-  // default values
-  if (angular.equals($scope.state, {})) {
-    $scope.state = {
-      reportType: 'neerslag',
-      city: 'Utrecht',
-      year: '2016',
-      month: '08'
-    };
-  }
-
-  window.addEventListener('hashchange', updateStateWithUrl);
-  $scope.$watch('state.month', updateDate);
-  $scope.$watch('state.year', updateDate);
-  $scope.$watch('state.city', updateBounds);
-
 
   $scope.locations = [{
     title: 'location1',
@@ -77,13 +39,24 @@ app.controller('MainCtrl', function ($scope, $route, UrlUtil, StateService) {
     }
   }];
 
+  $scope.state.bounds = StateService.updateBounds();
+
+  var updateDate = function () {
+   $scope.state.date = StateService.updateDate($scope.state);
+  };
+
+  $scope.state.date = StateService.updateDate($scope.state);
+
+  $scope.$watch('state.month', updateDate);
+  $scope.$watch('state.year', updateDate);
+
   $scope.layersMonthly = [
     {
       type: 'wms',
       url: 'https://raster.lizard.net/wms?',
       styles: 'radar-hour',
       layers: 'radar/hour',
-      time: '2016-08-17T11:00:00'
+      time: '2015-08-14T03:00:00'
     },
     {
       type: 'tms',
@@ -97,7 +70,7 @@ app.controller('MainCtrl', function ($scope, $route, UrlUtil, StateService) {
       url: 'https://raster.lizard.net/wms?',
       styles: 'radar-hour',
       layers: 'radar/hour',
-      time: '2016-08-17T11:00:00'
+      time: '2015-08-13T22:00:00'
     },
     {
       type: 'tms',

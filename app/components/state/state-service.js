@@ -8,11 +8,8 @@ var StateService = function (UtilService) {
     return newDate;
   };
 
-
   _state.updateBounds = function (city) {
-    return UtilService.getBounds(city).then(function (bounds) {
-      return bounds;
-    });
+    return UtilService.getBounds(city);
   };
 
   return _state;

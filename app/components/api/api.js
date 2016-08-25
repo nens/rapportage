@@ -96,7 +96,7 @@ var monthlydummy =
 
 angular.module('api', [])
 .service('ApiService', function ($http) {
-  var RRC_BASE_URL = 'https://demo.lizard.net/api/v2/raster-aggregates/?agg=rrc&geom=POINT({lng}+{lat})&raster_names=rain&srs=EPSG:4326&start={start_date}&stop={stop_date}&window=3600000';
+  var RRC_BASE_URL = '/api/v2/raster-aggregates/?agg=rrc&geom=POINT({lng}+{lat})&raster_names=rain&srs=EPSG:4326&start={start_date}&stop={stop_date}&window=3600000';
 
   var rainRecurrence = function (location, date) {
     var url = RRC_BASE_URL
@@ -108,11 +108,11 @@ angular.module('api', [])
       return response.data.data;
     }, function () {
       // this is the error callback but now returns the dummy
-      return rrcdummy.data;
+      console.log('No rain data found.')
     });
   };
 
-  var RAIN_BASE_URL = 'https://demo.lizard.net/api/v2/raster-aggregates/?agg=sum&geom='
+  var RAIN_BASE_URL = '/api/v2/raster-aggregates/?agg=sum&geom='
   + 'POLYGON(('
   + '{west}+{south},+'
   + '{east}+{south},+'
