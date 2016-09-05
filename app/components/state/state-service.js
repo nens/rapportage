@@ -1,5 +1,3 @@
-
-
 var StateService = function (UtilService) {
   var _state = {};
 

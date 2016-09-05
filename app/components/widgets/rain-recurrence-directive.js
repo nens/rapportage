@@ -1,4 +1,4 @@
-var rainRecurrence = function (ApiService) {
+var rainRecurrence = function (ApiService, ExtremeRainService) {
   /**
   * rainRecurrenceLink - this makes the branded header work. The link
   * function is called on initiating the dom elem.
@@ -16,7 +16,7 @@ var rainRecurrence = function (ApiService) {
     };
 
     var updateScope = function () {
-      var date = scope.date;
+      var date = new Date(scope.date.getTime());
       var start = date.toISOString();
       date.setMonth(date.getMonth() + 1);
       date.setDate(0);
@@ -26,13 +26,16 @@ var rainRecurrence = function (ApiService) {
         stop: stop
       })
       .then(function (response) {
+        scope.location.defer.resolve({
+          stats: response,
+          location: scope.location
+        });
         scope.recurrenceData = response;
       });
     };
 
     scope.$watch('date', updateScope);
 
-    updateScope();
   };
 
   return {
@@ -41,7 +44,9 @@ var rainRecurrence = function (ApiService) {
     restrict: 'E',
     scope: {
       location: '=',
-      date: '='
+      date: '=',
+      rainTMax: '=',
+      rainPromises: '='
     },
     template: require('./rain-recurrence.html')
   };

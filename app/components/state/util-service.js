@@ -1,7 +1,7 @@
 var BOUNDS = {
   Apeldoorn: {
     'bounds':
-      {'northeast':{'lat':52.2503211,'lng':6.0582249},'southwest':{'lat':52.1725279,'lng':5.9013839}}
+      {'northeast':{'lat':52.3,'lng':6.0},'southwest':{'lat':52.1,'lng':5.8}}
   }
 };
 
