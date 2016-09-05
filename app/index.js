@@ -14,41 +14,97 @@ var app = angular.module('rapportage', [
   angularRoute
 ]);
 
-app.controller('MainCtrl', function ($scope, $route, UrlUtil, StateService) {
+app.controller('MainCtrl', function ($q, $scope, $route, UrlUtil, StateService, ExtremeRainService) {
 
   $scope.state = {
     city: 'Apeldoorn',
     date: Date.now(),
     bounds: {},
     month: '08',
-    year: '2015'
+    year: '2015',
   };
 
-  $scope.locations = [{
-    title: 'location1',
-    geometry: {
-      lat: 5.4,
-      lng: 51.2
-    }
-  },
-  {
-    title: 'location2',
-    geometry: {
-      lat: 5.4321,
-      lng: 51.2125
-    }
-  }];
+  $scope.locations = [
+    {
+      title: 'Stadsdeel NoordOost',
+      geometry: {
+        lng: 5.9987068,
+        lat: 52.2266165
+      }
+    }, {
+      title: 'Stadsdeel ZuidOost',
+      geometry: {
+        lng: 5.9999084,
+        lat: 52.1986642
+      }
+    }, {
+      title: 'Stadsdeel ZuidWest',
+      geometry: {
+        lng: 5.9569073,
+        lat: 52.1902462
+      }
+    }, {
+      title: 'Stadsdeel NoordWest',
+      geometry: {
+        lng: 5.9397411,
+        lat: 52.2198076
+      }
+    }, {
+      title: 'Centrum',
+      geometry: {
+        lng: 5.9630442,
+        lat: 52.2129713
+      }
+    }, {
+      title: 'Beekbergen',
+      geometry: {
+        lng: 5.9650183,
+        lat: 52.1613233}
+    }, {
+      title: 'Uddel',
+      geometry: {
+        lng: 5.7817268,
+        lat: 52.2588068
+      }
+    }, {
+      title: 'Hoenderlo',
+      geometry: {
+        lng: 5.8806038,
+        lat: 52.118075
+      }
+    }, {
+      title: 'Loenen',
+      geometry: {
+        lng: 6.0208082,
+        lat: 52.1171791
+      }
+    }];
 
   $scope.state.bounds = StateService.updateBounds();
 
-  var updateDate = function () {
-   $scope.state.date = StateService.updateDate($scope.state);
+  var findExtremeRain = function(){
+    $scope.state.rainStats = [];
+    $scope.locations = $scope.locations.map(function (location) {
+      location.defer = $q.defer();
+      $scope.state.rainStats.push(location.defer.promise);
+      return location;
+    });
+    $q.all($scope.state.rainStats).then(function (allRain) {
+      $scope.state.rainTMax = ExtremeRainService.maxRain(allRain);
+    });
+  };
+
+  findExtremeRain();
+
+  var refresh = function () {
+    $scope.state.date = StateService.updateDate($scope.state);
+    findExtremeRain();
   };
 
   $scope.state.date = StateService.updateDate($scope.state);
 
-  $scope.$watch('state.month', updateDate);
-  $scope.$watch('state.year', updateDate);
+  $scope.$watch('state.month', refresh);
+  $scope.$watch('state.year', refresh);
 
   $scope.layersMonthly = [
     {

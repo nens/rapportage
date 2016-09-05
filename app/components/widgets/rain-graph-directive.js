@@ -12,12 +12,17 @@ var rainGraphWidget = function (ApiService) {
   * @param  {object} attrs - contents of the attributes
   * @return {object}       - Object with angular config
   */
+  var SIZE = 1200;
   var rainGraphWidgetLink = function (scope, elem) {
     var months = ['jan', 'feb', 'mrt', 'apr', 'mei', 'jun', 'jul', 'aug',
       'sep', 'okt', 'nov', 'dec'];
     var chart = nv.models.multiBarChart()
       .x(function (d) { return months[new Date(d[0] + 1296000000).getUTCMonth()]; })
-      .y(function (d) { return d[1] / 265254071 * 1000; })
+      .y(function (d) { return d[1] / SIZE; })
+      // TODO: ^-- SIZE = 1200 was picked as a hack that seems to give a
+      // TODO:     correct value. This hack is used because the raster-store
+      // TODO:     has a bug. This should be improved when the raster-store
+      // TODO:     is fixed.
       .wrapLabels(true)
       .reduceXTicks(false)   // If 'false', every single x-axis tick label will be rendered.
       .showControls(false)   // Allow user to switch between 'Grouped' and 'Stacked' mode.
@@ -25,25 +30,24 @@ var rainGraphWidget = function (ApiService) {
 
     var doChart = function () {
       if (scope.bounds && scope.year) {
-        console.log(elem[0], scope.bounds, scope.year);
         ApiService.getMonthlyRain(scope.bounds, scope.year).then(function (data) {
           d3.select(elem[0])
           .datum([{
             'key': 'Meerjaarlijks gemiddelde',
             'color': '#bdc3c7',
             'values': [
-              [Date.parse('Jan 1 2016'), 1 * 265254],
-              [Date.parse('Feb 1 2016'), 1 * 265254],
-              [Date.parse('Mar 1 2016'), 1 * 265254],
-              [Date.parse('Apr 1 2016'), 1 * 265254],
-              [Date.parse('May 1 2016'), 1 * 265254],
-              [Date.parse('Jun 1 2016'), 1 * 265254],
-              [Date.parse('Jul 1 2016'), 1 * 265254],
-              [Date.parse('Aug 1 2016'), 1 * 265254],
-              [Date.parse('Sep 1 2016'), 1 * 265254],
-              [Date.parse('Oct 1 2016'), 1 * 265254],
-              [Date.parse('Nov 1 2016'), 1 * 265254],
-              [Date.parse('Dec 1 2016'), 1 * 265254]
+              [Date.parse('Jan 1 2016'), 69 * SIZE],
+              [Date.parse('Feb 1 2016'), 56 * SIZE],
+              [Date.parse('Mar 1 2016'), 66 * SIZE],
+              [Date.parse('Apr 1 2016'), 42 * SIZE],
+              [Date.parse('May 1 2016'), 61 * SIZE],
+              [Date.parse('Jun 1 2016'), 65 * SIZE],
+              [Date.parse('Jul 1 2016'), 81 * SIZE],
+              [Date.parse('Aug 1 2016'), 72 * SIZE],
+              [Date.parse('Sep 1 2016'), 78 * SIZE],
+              [Date.parse('Oct 1 2016'), 82 * SIZE],
+              [Date.parse('Nov 1 2016'), 79 * SIZE],
+              [Date.parse('Dec 1 2016'), 75 * SIZE]
             ]
           }, {
             'key': 'timeseries',

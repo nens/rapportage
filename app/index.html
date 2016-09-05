@@ -43,7 +43,10 @@
 
       <rain-recurrence-time
         location="location"
-        date="$parent.state.date"
+        date="state.date"
+        rain-t-max="state.rainTMax"
+        max-location="state.maxLocation"
+        rain-promises="state.promiseMeRain"
         ng-repeat="location in locations"
         >
       </rain-recurrence-time>
