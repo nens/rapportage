@@ -106,33 +106,34 @@ app.controller('MainCtrl', function ($q, $scope, $route, UrlUtil, StateService, 
   $scope.$watch('state.month', refresh);
   $scope.$watch('state.year', refresh);
 
-  $scope.layersMonthly = [
-    {
-      type: 'wms',
-      url: 'https://raster.lizard.net/wms?',
-      styles: 'radar-hour',
-      layers: 'radar/hour',
-      time: '2015-08-14T03:00:00'
-    },
-    {
-      type: 'tms',
-      url: 'http://{s}.tiles.mapbox.com/v3/nelenschuurmans.iaa98k8k/{z}/{x}/{y}.png'
-    }
-  ];
-
-  $scope.layersMax = [
-    {
-      type: 'wms',
-      url: 'https://raster.lizard.net/wms?',
-      styles: 'radar-hour',
-      layers: 'radar/hour',
-      time: '2015-08-13T22:00:00'
-    },
-    {
-      type: 'tms',
-      url: 'http://{s}.tiles.mapbox.com/v3/nelenschuurmans.iaa98k8k/{z}/{x}/{y}.png'
-    }
-  ];
+  $scope.map = {
+    layersMonthly: [
+      {
+        type: 'wms',
+        url: 'https://raster.lizard.net/wms?',
+        styles: 'radar-hour',
+        layers: 'radar/hour',
+        time: '2015-08-14T03:00:00'
+      },
+      {
+        type: 'tms',
+        url: 'http://{s}.tiles.mapbox.com/v3/nelenschuurmans.iaa98k8k/{z}/{x}/{y}.png'
+      }
+    ],
+      layersMax: [
+      {
+        type: 'wms',
+        url: 'https://raster.lizard.net/wms?',
+        styles: 'radar-hour',
+        layers: 'radar/hour',
+        time: '2015-08-13T22:00:00'
+      },
+      {
+        type: 'tms',
+        url: 'http://{s}.tiles.mapbox.com/v3/nelenschuurmans.iaa98k8k/{z}/{x}/{y}.png'
+      }
+    ]
+  };
 });
 
 module.exports = app;

@@ -18,26 +18,26 @@
 
       <branded-header report-type="state.reportType" date="state.date"></branded-header>
 
-      <div class="row">
+      <div class="row map-row">
 
         <rain-map-widget class="col-sm-6"
           title="Maandelijks cumulatief"
           year="state.year"
           month="state.month"
-          layers="layersMonthly"
+          layers="map.layersMonthly"
           bounds="state.bounds"
-        > <!--verwijder layers en bounds-->
+        >
         </rain-map-widget>
 
         <rain-map-widget class="col-sm-6"
           title="Topbui"
           extreme-event="state.extremeEvent"
-          layers="layersMax"
+          layers="map.layersMax"
           bounds="state.bounds"
-        > <!--verwijder layers en bounds-->
+          locations="locations"
+          rain-t-max="state.rainTMax"
+        >
         </rain-map-widget>
-
-
 
       </div>
 

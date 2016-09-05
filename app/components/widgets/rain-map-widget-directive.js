@@ -18,7 +18,9 @@ var rainMapWidget = function () {
     restrict: 'E',
     scope: {
       layers: '=',
-      bounds: '='
+      bounds: '=',
+      locations: '=',
+      rainTMax: '='
     },
     template: require('./rain-map-widget.html')
   };
