@@ -102,7 +102,7 @@ var leafletMap = function () {
   var toLegendColors = function(legend){
     return legend.data.slice(1, legend.data.length).map(function(legendItem){
       return {
-        title: round(legendItem[0], 3) + " (mm)",
+        title: round(legendItem[0], 2),
         style: { background: 'rgba(' + legendItem[1].toString() + ')' }
       }
     })

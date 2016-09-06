@@ -2,6 +2,7 @@ require('bootstrap-loader');
 
 var angular = require('angular');
 var angularRoute = require('angular-route');
+var loadingBar = require('angular-loading-bar');
 
 require('./components/branded-header/branded-header');
 require('./components/state/state');
@@ -11,7 +12,8 @@ var app = angular.module('rapportage', [
   'brandedHeader',
   'state',
   'widgets',
-  angularRoute
+  angularRoute,
+  loadingBar
 ]);
 
 app.controller('MainCtrl', function ($q, $scope, $route, UrlUtil, StateService, ExtremeRainService) {

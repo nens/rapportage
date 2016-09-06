@@ -1,4 +1,4 @@
-.navbar-turquoise {
+.turquoise {
   background: $turquoise;
 }
 
@@ -8,6 +8,21 @@
 
 nav {
   text-transform: capitalize;
+  margin-left: -1rem;
+  margin-right: -1rem;
+}
+nav > div > div {
+  background: white;
+  margin: -15px 0 -15px 0;
+  padding: 15px 5px 15px 5px;
+  color: $greenSea;
+  -webkit-box-shadow: 5px 0 4px -5px rgba(0,0,0,0.3);
+  -moz-box-shadow: 5px 0 4px -5px rgba(0,0,0,0.3);
+  box-shadow: 5px 0 4px -5px rgba(0,0,0,0.3);
+}
+nav > div > div > img {
+  max-height: 30px;
+  margin-left: 5px;
 }
 
 nav > div {
