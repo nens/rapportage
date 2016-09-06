@@ -91,10 +91,18 @@ var leafletMap = function () {
     ]
   };
 
+  var round = function(number, precision) {
+    var factor = Math.pow(10, precision);
+    var tempNumber = number * factor;
+    var roundedTempNumber = Math.round(tempNumber);
+    return roundedTempNumber / factor;
+  };
+
+
   var toLegendColors = function(legend){
-    return legend.data.map(function(legendItem){
+    return legend.data.slice(1, legend.data.length).map(function(legendItem){
       return {
-        title: legendItem[0],
+        title: round(legendItem[0], 3) + " (mm)",
         style: { background: 'rgba(' + legendItem[1].toString() + ')' }
       }
     })
@@ -119,12 +127,7 @@ var leafletMap = function () {
   };
 
   var leafletMapLink = function (scope, elem) {
-    console.log(scope.type);
-    scope.legendColors = [
-      { background: 'blue' },
-      { background: 'red' },
-      { background: 'yellow' }
-    ];
+    if (scope.type === 'month') scope.legendColors = legends['radar-month'];
 
     var mapEl = elem[0].querySelector('.map-element');
     var map = L.map(mapEl, {
@@ -188,7 +191,7 @@ var leafletMap = function () {
         var style = 'radar-month';
         var layer = 'radar/temporalsum_day';
       }
-      var legend = legends[style];
+      scope.legendColors = legends[style];
 
       console.log(style, layer);
 
