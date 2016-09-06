@@ -22,17 +22,15 @@
 
         <rain-map-widget class="col-sm-6"
           title="Maandelijks cumulatief"
-          year="state.year"
-          month="state.month"
-          layers="map.layersMonthly"
+          date="state.date"
+          type="month"
           bounds="state.bounds"
         >
         </rain-map-widget>
 
         <rain-map-widget class="col-sm-6"
           title="Topbui"
-          extreme-event="state.extremeEvent"
-          layers="map.layersMax"
+          type="recurrence"
           bounds="state.bounds"
           locations="locations"
           rain-t-max="state.rainTMax"

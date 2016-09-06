@@ -21,7 +21,7 @@ app.controller('MainCtrl', function ($q, $scope, $route, UrlUtil, StateService, 
     date: Date.now(),
     bounds: {},
     month: '08',
-    year: '2015',
+    year: '2015'
   };
 
   $scope.locations = [
@@ -101,39 +101,15 @@ app.controller('MainCtrl', function ($q, $scope, $route, UrlUtil, StateService, 
     findExtremeRain();
   };
 
+  $scope.month = "month";
+  $scope.recurrence = "recurrence";
+
+
   $scope.state.date = StateService.updateDate($scope.state);
 
   $scope.$watch('state.month', refresh);
   $scope.$watch('state.year', refresh);
 
-  $scope.map = {
-    layersMonthly: [
-      {
-        type: 'wms',
-        url: 'https://raster.lizard.net/wms?',
-        styles: 'radar-hour',
-        layers: 'radar/hour',
-        time: '2015-08-14T03:00:00'
-      },
-      {
-        type: 'tms',
-        url: 'http://{s}.tiles.mapbox.com/v3/nelenschuurmans.iaa98k8k/{z}/{x}/{y}.png'
-      }
-    ],
-      layersMax: [
-      {
-        type: 'wms',
-        url: 'https://raster.lizard.net/wms?',
-        styles: 'radar-hour',
-        layers: 'radar/hour',
-        time: '2015-08-13T22:00:00'
-      },
-      {
-        type: 'tms',
-        url: 'http://{s}.tiles.mapbox.com/v3/nelenschuurmans.iaa98k8k/{z}/{x}/{y}.png'
-      }
-    ]
-  };
 });
 
 module.exports = app;

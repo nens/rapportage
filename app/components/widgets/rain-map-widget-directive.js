@@ -17,8 +17,9 @@ var rainMapWidget = function () {
     replace: true,
     restrict: 'E',
     scope: {
-      layers: '=',
+      type: '=',
       bounds: '=',
+      date: '=',
       locations: '=',
       rainTMax: '='
     },
