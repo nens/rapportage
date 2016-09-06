@@ -44,8 +44,7 @@ const config = {
     autoprefixer({
       browsers: ['last 2 versions']
     })
-  ],
-  devtool: 'eval-source-map'
+  ]
 };
 
 module.exports = config;

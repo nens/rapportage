@@ -4,6 +4,7 @@ const WDS = require('webpack-dev-server');
 
 const PORT = process.env.PORT || 3000;
 
+config.devtool = 'eval-source-map';
 const devserver = new WDS(webpack(config), {
   hot: true,
   inline: true,
