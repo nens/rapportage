@@ -1,5 +1,10 @@
 <div class="rain-map-widget">
   <h4 ng-bind="title"></h4>
-  <leaflet-map layers="layers" bounds="bounds"></leaflet-map>
-  <img class="rain-map-legend" ng-src="legend" />
+  <leaflet-map
+    type="type"
+    bounds="bounds"
+    locations="locations"
+    date="date"
+    rain-t-max="rainTMax">
+  </leaflet-map>
 </div>

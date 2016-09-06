@@ -17,8 +17,11 @@ var rainMapWidget = function () {
     replace: true,
     restrict: 'E',
     scope: {
-      layers: '=',
-      bounds: '='
+      type: '=',
+      bounds: '=',
+      date: '=',
+      locations: '=',
+      rainTMax: '='
     },
     template: require('./rain-map-widget.html')
   };

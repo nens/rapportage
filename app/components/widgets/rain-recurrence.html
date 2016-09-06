@@ -1,6 +1,6 @@
 <div>
   <div class="row">
-    <div class="col-md-12 recurrence recurrence-title" ng-click="toggleContent()">
+    <div class="col-md-12 recurrence recurrence-title" ng-click="toggleContent()" ng-class="{'selected': location.title === maxLocation}">
       {{ location.title }}
     </div>
   </div>
@@ -15,7 +15,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat="rrc in recurrenceData">
+        <tr ng-repeat="rrc in recurrenceData track by $index" ng-class="{'table-success': (rrc.start === rainTMax.start && rrc.end === rainTMax.end && rrc.t_choice === rainTMax.t_choice)}">
           <td>{{ rrc.start | date: 'dd-MM-yyyy HH:mm'}}</td>
           <td>{{ rrc.td_window }}</td>
           <td>{{ rrc.max | number: 2}}</td>

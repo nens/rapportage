@@ -16,21 +16,24 @@
 
       <date-picker year="state.year" month="state.month"></date-picker>
 
-      <branded-header city="state.city" report-type="state.reportType" date="state.date"></branded-header>
+      <branded-header report-type="state.reportType" date="state.date"></branded-header>
 
-      <div class="row">
+      <div class="row map-row">
 
         <rain-map-widget class="col-sm-6"
           title="Maandelijks cumulatief"
-          layers="layersMonthly"
+          date="state.date"
+          type="month"
           bounds="state.bounds"
         >
         </rain-map-widget>
 
         <rain-map-widget class="col-sm-6"
           title="Topbui"
-          layers="layersMax"
+          type="recurrence"
           bounds="state.bounds"
+          locations="locations"
+          rain-t-max="state.rainTMax"
         >
         </rain-map-widget>
 
@@ -38,7 +41,10 @@
 
       <rain-recurrence-time
         location="location"
-        date="$parent.state.date"
+        date="state.date"
+        rain-t-max="state.rainTMax"
+        max-location="state.maxLocation"
+        rain-promises="state.promiseMeRain"
         ng-repeat="location in locations"
         >
       </rain-recurrence-time>

@@ -14,96 +14,102 @@ var app = angular.module('rapportage', [
   angularRoute
 ]);
 
-app.controller('MainCtrl', function ($scope, $route, UrlUtil, StateService) {
-  $scope.state = {};
+app.controller('MainCtrl', function ($q, $scope, $route, UrlUtil, StateService, ExtremeRainService) {
 
-  var updateStateWithUrl = function () {
-    $scope.fromUrl = true;
-    angular.extend($scope.state, UrlUtil.updateStateWithUrl());
-    // otherwise anglar doesn't register the change. This is called
-    // from a non-angular event handler
-    if (!$scope.$$phase) {
-      $scope.$apply();
-    }
+  $scope.state = {
+    city: 'Apeldoorn',
+    date: Date.now(),
+    bounds: {},
+    month: '08',
+    year: '2015'
   };
 
-  var updateDate = function () {
-    $scope.state.date = StateService.updateDate($scope.state);
+  $scope.locations = [
+    {
+      title: 'Stadsdeel NoordOost',
+      geometry: {
+        lng: 5.9987068,
+        lat: 52.2266165
+      }
+    }, {
+      title: 'Stadsdeel ZuidOost',
+      geometry: {
+        lng: 5.9999084,
+        lat: 52.1986642
+      }
+    }, {
+      title: 'Stadsdeel ZuidWest',
+      geometry: {
+        lng: 5.9569073,
+        lat: 52.1902462
+      }
+    }, {
+      title: 'Stadsdeel NoordWest',
+      geometry: {
+        lng: 5.9397411,
+        lat: 52.2198076
+      }
+    }, {
+      title: 'Centrum',
+      geometry: {
+        lng: 5.9630442,
+        lat: 52.2129713
+      }
+    }, {
+      title: 'Beekbergen',
+      geometry: {
+        lng: 5.9650183,
+        lat: 52.1613233}
+    }, {
+      title: 'Uddel',
+      geometry: {
+        lng: 5.7817268,
+        lat: 52.2588068
+      }
+    }, {
+      title: 'Hoenderlo',
+      geometry: {
+        lng: 5.8806038,
+        lat: 52.118075
+      }
+    }, {
+      title: 'Loenen',
+      geometry: {
+        lng: 6.0208082,
+        lat: 52.1171791
+      }
+    }];
 
-    if ($scope.fromUrl) {
-      UrlUtil.updateUrlWithState($scope.state);
-    }
-    $scope.fromUrl = false;
-  };
+  $scope.state.bounds = StateService.updateBounds();
 
-  var updateBounds = function (city) {
-    StateService.updateBounds(city).then(function (bounds) {
-      $scope.state.bounds = bounds;
+  var findExtremeRain = function(){
+    $scope.state.rainStats = [];
+    $scope.locations = $scope.locations.map(function (location) {
+      location.defer = $q.defer();
+      $scope.state.rainStats.push(location.defer.promise);
+      return location;
+    });
+    $q.all($scope.state.rainStats).then(function (allRain) {
+      $scope.state.rainTMax = ExtremeRainService.maxRain(allRain);
     });
   };
 
-  updateStateWithUrl();
-  updateDate();
-  updateBounds();
+  findExtremeRain();
 
-  // default values
-  if (angular.equals($scope.state, {})) {
-    $scope.state = {
-      reportType: 'neerslag',
-      city: 'Utrecht',
-      year: '2016',
-      month: '08'
-    };
-  }
+  var refresh = function () {
+    $scope.state.date = StateService.updateDate($scope.state);
+    findExtremeRain();
+  };
 
-  window.addEventListener('hashchange', updateStateWithUrl);
-  $scope.$watch('state.month', updateDate);
-  $scope.$watch('state.year', updateDate);
-  $scope.$watch('state.city', updateBounds);
+  $scope.month = "month";
+  $scope.recurrence = "recurrence";
 
 
-  $scope.locations = [{
-    title: 'location1',
-    geometry: {
-      lat: 5.4,
-      lng: 51.2
-    }
-  },
-  {
-    title: 'location2',
-    geometry: {
-      lat: 5.4321,
-      lng: 51.2125
-    }
-  }];
+  $scope.state.date = StateService.updateDate($scope.state);
 
-  $scope.layersMonthly = [
-    {
-      type: 'wms',
-      url: 'https://raster.lizard.net/wms?',
-      styles: 'radar-hour',
-      layers: 'radar/hour',
-      time: '2016-08-17T11:00:00'
-    },
-    {
-      type: 'tms',
-      url: 'http://{s}.tiles.mapbox.com/v3/nelenschuurmans.iaa98k8k/{z}/{x}/{y}.png'
-    }
-  ];
+  $scope.$watch('state.month', refresh);
+  $scope.$watch('state.year', refresh);
 
-  $scope.layersMax = [
-    {
-      type: 'wms',
-      url: 'https://raster.lizard.net/wms?',
-      styles: 'radar-hour',
-      layers: 'radar/hour',
-      time: '2016-08-17T11:00:00'
-    },
-    {
-      type: 'tms',
-      url: 'http://{s}.tiles.mapbox.com/v3/nelenschuurmans.iaa98k8k/{z}/{x}/{y}.png'
-    }
-  ];
 });
 
 module.exports = app;
