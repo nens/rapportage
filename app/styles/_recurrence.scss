@@ -1,10 +1,19 @@
 .recurrence-title {
+  color: #fff;
   cursor: pointer;
   width: 100%;
-  background: lighten($turquoise, 10%);
+  background: lighten($greenSea, 10%);
   text-transform: capitalize;
   padding: 0.5em;
   margin-bottom: 0.5em;
+}
+
+.recurrence-selected {
+  background: $carrot;
+}
+
+.recurrence-row-selected {
+  background: #f1d4a1;
 }
 
 .recurrence-content.show {
