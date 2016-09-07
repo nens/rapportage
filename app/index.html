@@ -24,14 +24,14 @@
           title="Maandelijks cumulatief"
           date="state.date"
           type="month"
-          bounds="state.bounds"
+          map="map"
         >
         </rain-map-widget>
 
         <rain-map-widget class="col-sm-6"
           title="Topbui"
           type="recurrence"
-          bounds="state.bounds"
+          map="map"
           locations="locations"
           rain-t-max="state.rainTMax"
         >
@@ -45,12 +45,18 @@
         rain-t-max="state.rainTMax"
         max-location="state.maxLocation"
         rain-promises="state.promiseMeRain"
+        uuid="map.rainRasterStoreUUID"
         ng-repeat="location in locations"
         >
       </rain-recurrence-time>
 
       <div class="row">
-        <rain-graph year="state.year" bounds="state.bounds"></rain-graph>
+        <rain-graph
+          year="state.year"
+          bounds="map.bounds"
+          monthly-means="map.monthlyMeans"
+          uuid="map.rainRasterStoreUUID">
+        </rain-graph>
       </div>
 
     </div>

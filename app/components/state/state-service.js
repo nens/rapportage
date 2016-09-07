@@ -6,8 +6,8 @@ var StateService = function (UtilService) {
     return newDate;
   };
 
-  _state.updateBounds = function (city) {
-    return UtilService.getBounds(city);
+  _state.updateBounds = function (geom) {
+    return UtilService.getBounds(geom);
   };
 
   return _state;

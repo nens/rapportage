@@ -12,7 +12,7 @@ var rainGraphWidget = function (ApiService) {
   * @param  {object} attrs - contents of the attributes
   * @return {object}       - Object with angular config
   */
-  var SIZE = 1200;
+  var SIZE = 1200;  // TODO: fix this when raster-store is fixed
   var rainGraphWidgetLink = function (scope, elem) {
     var months = ['jan', 'feb', 'mrt', 'apr', 'mei', 'jun', 'jul', 'aug',
       'sep', 'okt', 'nov', 'dec'];
@@ -29,33 +29,35 @@ var rainGraphWidget = function (ApiService) {
       .groupSpacing(0.1);   // Distance between each group of bars. // transitionDuration
 
     var doChart = function () {
-      if (scope.bounds && scope.year) {
-        ApiService.getMonthlyRain(scope.bounds, scope.year).then(function (data) {
-          d3.select(elem[0])
-          .datum([{
-            'key': 'Meerjaarlijks gemiddelde',
-            'color': '#bdc3c7',
-            'values': [
-              [Date.parse('Jan 1 2016'), 69 * SIZE],
-              [Date.parse('Feb 1 2016'), 56 * SIZE],
-              [Date.parse('Mar 1 2016'), 66 * SIZE],
-              [Date.parse('Apr 1 2016'), 42 * SIZE],
-              [Date.parse('May 1 2016'), 61 * SIZE],
-              [Date.parse('Jun 1 2016'), 65 * SIZE],
-              [Date.parse('Jul 1 2016'), 81 * SIZE],
-              [Date.parse('Aug 1 2016'), 72 * SIZE],
-              [Date.parse('Sep 1 2016'), 78 * SIZE],
-              [Date.parse('Oct 1 2016'), 82 * SIZE],
-              [Date.parse('Nov 1 2016'), 79 * SIZE],
-              [Date.parse('Dec 1 2016'), 75 * SIZE]
-            ]
-          }, {
-            'key': 'timeseries',
-            'color': '#16a085',
-            'values': data
-          }])
-          .call(chart);
-        });
+      if (scope.bounds && scope.year && scope.monthlyMeans) {
+        ApiService.getMonthlyRain(scope.bounds, scope.year, scope.uuid)
+          .then(function (data) {
+            d3.select(elem[0])
+            .datum([{
+              'key': 'Meerjaarlijks gemiddelde',
+              'color': '#bdc3c7',
+              'values': [
+                [Date.parse('Jan 1 2016'), scope.monthlyMeans[0] * SIZE],
+                [Date.parse('Feb 1 2016'), scope.monthlyMeans[1] * SIZE],
+                [Date.parse('Mar 1 2016'), scope.monthlyMeans[2] * SIZE],
+                [Date.parse('Apr 1 2016'), scope.monthlyMeans[3] * SIZE],
+                [Date.parse('May 1 2016'), scope.monthlyMeans[4] * SIZE],
+                [Date.parse('Jun 1 2016'), scope.monthlyMeans[5] * SIZE],
+                [Date.parse('Jul 1 2016'), scope.monthlyMeans[6] * SIZE],
+                [Date.parse('Aug 1 2016'), scope.monthlyMeans[7] * SIZE],
+                [Date.parse('Sep 1 2016'), scope.monthlyMeans[8] * SIZE],
+                [Date.parse('Oct 1 2016'), scope.monthlyMeans[9] * SIZE],
+                [Date.parse('Nov 1 2016'), scope.monthlyMeans[10] * SIZE],
+                [Date.parse('Dec 1 2016'), scope.monthlyMeans[11] * SIZE]
+              ]
+            }, {
+              'key': 'timeseries',
+              'color': '#16a085',
+              'values': data
+            }])
+            .call(chart);
+          }
+        );
       }
     };
 
@@ -73,6 +75,7 @@ var rainGraphWidget = function (ApiService) {
 
     scope.$watch('year', doChart);
     scope.$watch('bounds', doChart);
+    scope.$watch('monthlyMeans', doChart);
   };
 
   return {
@@ -81,7 +84,9 @@ var rainGraphWidget = function (ApiService) {
     restrict: 'E',
     scope: {
       year: '=',
-      bounds: '='
+      bounds: '=',
+      monthlyMeans: '=',
+      uuid: '='
     },
     template: require('./rain-graph.html')
   };
