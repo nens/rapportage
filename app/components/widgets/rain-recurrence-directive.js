@@ -21,7 +21,7 @@ var rainRecurrence = function (ApiService, ExtremeRainService) {
       date.setMonth(date.getMonth() + 1);
       date.setDate(0);
       var stop = date.toISOString();
-      ApiService.rainRecurrence(scope.location, {
+      ApiService.rainRecurrence(scope.location, scope.uuid, {
         start: start,
         stop: stop
       })
@@ -35,7 +35,6 @@ var rainRecurrence = function (ApiService, ExtremeRainService) {
     };
 
     scope.$watch('date', updateScope);
-
   };
 
   return {
@@ -45,6 +44,7 @@ var rainRecurrence = function (ApiService, ExtremeRainService) {
     scope: {
       location: '=',
       date: '=',
+      uuid: '=',
       rainTMax: '=',
       rainPromises: '='
     },
