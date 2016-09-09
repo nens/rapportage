@@ -2,4 +2,8 @@ build_user: buildout
 
 repo_name: rapportage
 
-version: 1.0.5
+version: 1.0.2
+
+sitename: "staging.nxt.lizard.net"
+project_path: "/srv/{{ sitename }}"
+deploy_path: "{{ project_path }}/src/rapportage"

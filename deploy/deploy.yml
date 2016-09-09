@@ -12,18 +12,18 @@
   - name: rm old frontend
     sudo: yes
     sudo_user: "{{ build_user }}"
-    file: path=/var/www/frontend/ state=absent
+    file: path={{ deploy_path }} state=absent
 
   - name: mkdir
     sudo: yes
     sudo_user: "{{ build_user }}"
-    file: path=/var/www/frontend/ state=directory owner={{ build_user }}
+    file: path={{ deploy_path }} state=directory owner={{ build_user }}
 
   - name: unzip release
     sudo: yes
     sudo_user: "{{ build_user }}"
     # unarchive: src=/tmp/{{ version}}.zip dest=/var/www/frontend
-    command: unzip /tmp/{{ version }}.zip -d /var/www/frontend
+    command: unzip /tmp/{{ version }}.zip -d {{ deploy_path }}
 
 
   - name: rm tmp zip

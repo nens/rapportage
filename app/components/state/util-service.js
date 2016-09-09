@@ -1,5 +1,5 @@
 var L = require('leaflet');
-var UtilService = function ($http) {
+var UtilService = ['$http', function ($http) {
   /**
    * getBounds - feed a city get a set of coordinates.
    *
@@ -13,6 +13,6 @@ var UtilService = function ($http) {
     );
     return bounds;
   };
-};
+}];
 
 module.exports = UtilService;

@@ -6,6 +6,11 @@ const PORT = process.env.PORT || 3000;
 
 config.devtool = 'eval-source-map';
 const devserver = new WDS(webpack(config), {
+  // config.entry.app.unshift(
+  //   "webpack-dev-server/client?http://0.0.0.0:{PORT}/"
+  //     .replace('{PORT}', PORT),
+  //   "webpack/hot/dev-server"
+  // );
   hot: true,
   inline: true,
   progress: true,
@@ -16,6 +21,10 @@ const devserver = new WDS(webpack(config), {
       path: '/api/v2/*',
       target: 'http://localhost:8000' // <- backend
     },
+    {
+      path: '/rapportage/*',
+      target: 'http://localhost:{PORT}/'.replace('{PORT}', PORT)
+    }
 
   ]
 });

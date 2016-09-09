@@ -11,10 +11,6 @@ fs.mkdirSync('./tmp');
 var fileName = __dirname + '/tmp/' + version + '.zip';
 var writeFileStream = fs.createWriteStream(fileName);
 
-// var files = fs.readdirSync('./dist').map(function (file) {
-//   return { source: './dist/' + file, target: file};
-// });
-
 var client = github.client(require('./deploy/auth.json').token);
 var ghrepo = client.repo(pkg.repository.name);
 

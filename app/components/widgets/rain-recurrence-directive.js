@@ -1,4 +1,4 @@
-var rainRecurrence = function (ApiService, ExtremeRainService) {
+var rainRecurrence = ['ApiService', 'ExtremeRainService', function (ApiService, ExtremeRainService) {
   /**
   * rainRecurrenceLink - this makes the branded header work. The link
   * function is called on initiating the dom elem.
@@ -50,6 +50,6 @@ var rainRecurrence = function (ApiService, ExtremeRainService) {
     },
     template: require('./rain-recurrence.html')
   };
-};
+}];
 
 module.exports = rainRecurrence;

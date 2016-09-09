@@ -5,7 +5,7 @@
  * @param  {object} $location   -
  * @return {void}
  */
-var UrlUtil = function ($location) {
+var UrlUtil = ['$location', function ($location) {
   /**
    * defines the parts of the url (there are 4 parts first is empty)
    */
@@ -44,6 +44,6 @@ var UrlUtil = function ($location) {
     updateUrlWithState: updateUrlWithState,
     updateStateWithUrl: updateStateWithUrl
   };
-};
+}];
 
 module.exports = UrlUtil;

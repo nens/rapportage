@@ -1,4 +1,4 @@
-var StateService = function (UtilService) {
+var StateService = ['UtilService', function (UtilService) {
   var _state = {};
 
   _state.updateDate = function (state) {
@@ -11,6 +11,6 @@ var StateService = function (UtilService) {
   };
 
   return _state;
-};
+}];
 
 module.exports = StateService;

@@ -16,7 +16,14 @@ var app = angular.module('rapportage', [
   loadingBar
 ]);
 
-app.controller('MainCtrl', function ($q, $scope, $http, $route, UrlUtil, StateService, ExtremeRainService) {
+app.controller('MainCtrl', [
+  '$q',
+  '$http',
+  '$route',
+  'UrlUtil',
+  'StateService',
+  'ExtremeRainService',
+  function ($q, $scope, $http, $route, UrlUtil, StateService, ExtremeRainService) {
   // load config.json
   $http.get('config.json')
     .then(function(res){
@@ -70,6 +77,6 @@ app.controller('MainCtrl', function ($q, $scope, $http, $route, UrlUtil, StateSe
       $scope.$watch('state.month', refresh);
       $scope.$watch('state.year', refresh);
   });
-});
+}]);
 
 module.exports = app;

@@ -2,7 +2,7 @@ var nv = require('nvd3');
 var d3 = require('d3');
 require('nvd3/build/nv.d3.css');
 
-var rainGraphWidget = function (ApiService) {
+var rainGraphWidget = ['ApiService', function (ApiService) {
   /**
   * rainGraphWidgetLink - this makes the branded header work. The link
   * function is called on initiating the dom elem.
@@ -90,6 +90,6 @@ var rainGraphWidget = function (ApiService) {
     },
     template: require('./rain-graph.html')
   };
-};
+}];
 
 module.exports = rainGraphWidget;

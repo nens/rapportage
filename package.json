@@ -14,7 +14,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nens/rapportage.git"
+    "url": "git+https://github.com/nens/rapportage.git",
+    "name": "nens/rapportage"
   },
   "keywords": [
     "rain",
@@ -28,6 +29,7 @@
   },
   "homepage": "https://github.com/nens/rapportage#readme",
   "devDependencies": {
+    "archiver": "^1.1.0",
     "babel-eslint": "^6.1.2",
     "bootstrap-loader": "^1.2.0-beta.1",
     "css-loader": "^0.23.1",
@@ -46,6 +48,7 @@
     "karma-phantomjs-launcher": "^1.0.1",
     "karma-webpack": "^1.8.0",
     "node-sass": "^3.8.0",
+    "octonode": "^0.7.6",
     "postcss-loader": "^0.10.0",
     "release-it": "^2.4.3",
     "resolve-url-loader": "^1.6.0",

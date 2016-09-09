@@ -1,7 +1,7 @@
 var angular = require('angular');
 
 angular.module('api', [])
-.service('ApiService', function ($http) {
+.service('ApiService', ['$http', function ($http) {
 
   var RRC_BASE_URL = '/api/v2/raster-aggregates/?' +
     'agg=rrc&' +
@@ -65,4 +65,4 @@ angular.module('api', [])
     rainRecurrence: rainRecurrence,
     getMonthlyRain: getMonthlyRain
   }
-});
+}]);
