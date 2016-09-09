@@ -1,0 +1,10 @@
+{
+  "npm": {
+    "publish": false,
+    "publishPath": ".",
+    "tag": "latest",
+    "private": false,
+    "forcePublishSourceRepo": false
+  },
+  "verbose": true
+}
