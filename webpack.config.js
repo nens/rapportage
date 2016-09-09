@@ -32,8 +32,9 @@ const config = {
   },
   plugins: [
     new CopyWebpackPlugin([
-            { from: 'app/images', to: 'images/'}
-          ]),
+      { from: 'app/images', to: 'images/'},
+      { from: 'app/config.json'}
+    ]),
     new ExtractTextPlugin('[name].css', {allChunks: true}),
     new webpack.ProvidePlugin({
       'window.Tether': 'tether'
