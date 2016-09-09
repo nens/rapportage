@@ -3,6 +3,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const config = {
   entry: {
@@ -30,6 +31,9 @@ const config = {
     ]
   },
   plugins: [
+    new CopyWebpackPlugin([
+            { from: 'app/images', to: 'images/'}
+          ]),
     new ExtractTextPlugin('[name].css', {allChunks: true}),
     new webpack.ProvidePlugin({
       'window.Tether': 'tether'
