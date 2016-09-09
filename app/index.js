@@ -18,6 +18,7 @@ var app = angular.module('rapportage', [
 
 app.controller('MainCtrl', [
   '$q',
+  '$scope',
   '$http',
   '$route',
   'UrlUtil',
