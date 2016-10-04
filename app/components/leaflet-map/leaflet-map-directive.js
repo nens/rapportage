@@ -31,8 +31,8 @@ var leafletMap = function () {
       className: 'nens-div-icon',
       iconAnchor: [pxSize, pxSize],
       html: '<svg id="marker-{location}">'.replace(/\{location\}/g, location)
-      + '<circle class="outer"/>'
-      + '<circle class="inner"/>'
+      + '<circle cx="8" cy="8" r="7" class="outer"/>'
+      + '<circle cx="8" cy="8" r="2" class="inner"/>'
       + '</svg>'
     });
   };
@@ -107,7 +107,8 @@ var leafletMap = function () {
             var style = 'radar-month';
             var layer = 'radar/temporalsum_day';
           }
-          scope.legendColors = legends[style];
+          scope.legendColors = legends[style].slice(
+              0, legends[style].length - 1);
 
           console.log(style, layer);
 
