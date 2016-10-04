@@ -29,7 +29,8 @@ app.controller('MainCtrl', [
   $http.get('config.json')
     .then(function(res){
       var config = res.data;
-      var siteConfig = config.sites[0];
+      $scope.region = window.location.host.split('.')[0];
+      var siteConfig = config.sites[$scope.region];
       console.log(siteConfig);
 
       var now = new Date(Date.now());

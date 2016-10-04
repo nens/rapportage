@@ -4,6 +4,8 @@ Changelog of rapportage
 1.0.7 (unreleased)
 ------------------
 
+- Lizard SSO login.
+
 - Fixes markers in other browsers than chrome.
 
 - Leaves out last color in legend.
