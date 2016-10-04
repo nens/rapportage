@@ -37,7 +37,7 @@ app.controller('MainCtrl', [
       var month = (now.getMonth() + 1).toString();
 
       $scope.state = {
-        city: siteConfig.state.regionTitle,
+        regionTitle: siteConfig.state.regionTitle,
         date: Date.now(),
         month: "0".repeat(2 - month.length) + month,
         year: now.getFullYear()

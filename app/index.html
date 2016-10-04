@@ -2,7 +2,7 @@
 <html lang="en" ng-app="rapportage">
   <head>
     <meta charset="utf-8">
-    <title>Lizard - Rapportage</title>
+    <title>Lizard - Regenrapportage</title>
 
     <link rel="icon" href="/images/favicon.png" />
     <!-- you don't need to keep this, but it's cool for stats! -->
@@ -16,7 +16,11 @@
 
       <date-picker year="state.year" month="state.month"></date-picker>
 
-      <branded-header report-type="state.reportType" date="state.date"></branded-header>
+      <branded-header
+        region="state.regionTitle"
+        report-type="state.reportType"
+        date="state.date">
+      </branded-header>
 
       <div class="row map-row">
 
