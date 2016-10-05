@@ -4,6 +4,8 @@ Changelog of rapportage
 1.0.7 (unreleased)
 ------------------
 
+- Fixes layer order in maps.
+
 - Updates headers.
 
 - Lizard SSO login.

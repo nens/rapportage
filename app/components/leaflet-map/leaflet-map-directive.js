@@ -59,13 +59,13 @@ var leafletMap = function () {
         });
 
         // add map background from tms layer:
-        L.tileLayer(mapConfig.tmsUrl, {}).addTo(map);
+        L.tileLayer(mapConfig.tmsUrl, {}).setZIndex(0).addTo(map);
 
         // create context layers:
-        var markerLayer = L.layerGroup()
+        var markerLayer = L.layerGroup().setZIndex(30)
           .addTo(map);
 
-        var rainLayer = L.layerGroup()
+        var rainLayer = L.layerGroup().setZIndex(20)
           .addTo(map);
 
         var drawMarkers = function () {
@@ -88,7 +88,6 @@ var leafletMap = function () {
           // determine the timedelta and time
           var timeDelta = stop - start;
           var time = start.toISOString() + '/' + stop.toISOString();
-          console.log(time);
 
           // determine temporalsum wrapper and corresponding style
           if (timeDelta < mapConfig.cutOffs.fiveMinuteCutOff) {
@@ -110,8 +109,6 @@ var leafletMap = function () {
           scope.legendColors = legends[style].slice(
               0, legends[style].length - 1);
 
-          console.log(style, layer);
-
           // create the layer and add it to the map.
           rainLayer.clearLayers();
           L.tileLayer.wms(mapConfig.wmsUrl, {
@@ -129,7 +126,6 @@ var leafletMap = function () {
         };
 
         var updateExtremeRain = function (rainTMax) {
-          console.log(scope.date, scope.rainTMax, scope.type);
           if (rainTMax && scope.type === 'recurrence') {
             // first highlight the right marker
             var markerId = '#marker-' + rainTMax.location.replace( /\s+/g, '' );
