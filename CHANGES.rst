@@ -1,7 +1,7 @@
 Changelog of rapportage
 =======================
 
-1.0.7 (unreleased)
+1.1.0 (2016-10-05)
 ------------------
 
 - config is imported in index.js rather than requesting it after the fact.
