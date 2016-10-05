@@ -4,6 +4,10 @@ Changelog of rapportage
 1.0.7 (unreleased)
 ------------------
 
+- config is imported in index.js rather than requesting it after the fact.
+
+- Adds info modals.
+
 - Fixes layer order in maps.
 
 - Updates headers.

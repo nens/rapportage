@@ -1,37 +1,70 @@
 require('bootstrap-loader');
+require('font-awesome/css/font-awesome.css');
 
 var angular = require('angular');
 var angularRoute = require('angular-route');
 var loadingBar = require('angular-loading-bar');
-
+var config = require('./config.json');
 require('./components/branded-header/branded-header');
 require('./components/state/state');
 require('./components/widgets/widgets');
+require('./components/modals/modals');
 
 var app = angular.module('rapportage', [
   'brandedHeader',
   'state',
   'widgets',
+  'modals',
   angularRoute,
   loadingBar
 ]);
 
 app.controller('MainCtrl', [
-  '$q',
-  '$scope',
-  '$http',
-  '$route',
-  'UrlUtil',
-  'StateService',
-  'ExtremeRainService',
-  function ($q, $scope, $http, $route, UrlUtil, StateService, ExtremeRainService) {
-  // load config.json
-  $http.get('config.json')
-    .then(function(res){
-      var config = res.data;
+    '$q',
+    '$scope',
+    '$http',
+    '$route',
+    'UrlUtil',
+    'StateService',
+    'ExtremeRainService',
+    function ($q, $scope, $http, $route, UrlUtil, StateService, ExtremeRainService) {
       $scope.region = window.location.host.split('.')[0];
       var siteConfig = config.sites[$scope.region];
-      console.log(siteConfig);
+      if(siteConfig){
+        $scope.modalActive = true;
+      } else {
+        $scope.modalActive = false;
+        siteConfig = {
+          "state": {
+            "regionTitle": "Nederland",
+            "bounds": {
+              "northeast": {
+                "lat": 54.0,
+                "lng": 4.5
+              },
+              "southwest": {
+                "lat": 51.0,
+                "lng": 5.8
+              }
+            }
+          },
+          "monthlyMeans": [
+            69,
+            56,
+            66,
+            42,
+            61,
+            65,
+            81,
+            72,
+            78,
+            82,
+            79,
+            75
+          ],
+          "locations": []
+        };
+      }
 
       var now = new Date(Date.now());
       var month = (now.getMonth() + 1).toString();
@@ -78,7 +111,8 @@ app.controller('MainCtrl', [
 
       $scope.$watch('state.month', refresh);
       $scope.$watch('state.year', refresh);
-  });
-}]);
+    }
+  ]
+);
 
 module.exports = app;
