@@ -2,8 +2,6 @@ build_user: buildout
 
 repo_name: rapportage
 
-version: 1.0.5
-
 sitename: "integration.nxt.lizard.net"
 clientname: "rain"
 deploy_path: "/srv/{{ sitename }}_{{ clientname }}"

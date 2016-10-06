@@ -25,7 +25,6 @@
     # unarchive: src=/tmp/{{ version}}.zip dest=/var/www/frontend
     command: unzip /tmp/{{ version }}.zip -d {{ deploy_path }}
 
-
   - name: rm tmp zip
     sudo: yes
     sudo_user: "{{ build_user }}"
