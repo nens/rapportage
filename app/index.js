@@ -10,7 +10,7 @@ require('./components/state/state');
 require('./components/widgets/widgets');
 require('./components/modals/modals');
 
-var app = angular.module('rapportage', [
+var app = angular.module('rain_report', [
   'brandedHeader',
   'state',
   'widgets',

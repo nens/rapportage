@@ -1,6 +1,6 @@
 build_user: buildout
 
-repo_name: rapportage
+repo_name: rain_report
 
 sitename: "integration.nxt.lizard.net"
 clientname: "rain"

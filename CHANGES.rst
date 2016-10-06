@@ -1,6 +1,16 @@
 Changelog of rapportage
 =======================
 
+1.1.1 (2016-10-06)
+------------------
+
+- moved modal templates.
+
+- added integration deployement.
+
+- renamed project from rapportage to rain_report.
+
+
 1.1.0 (2016-10-05)
 ------------------
 

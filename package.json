@@ -1,5 +1,5 @@
 {
-  "name": "rapportage",
+  "name": "rain_report",
   "version": "1.1.0",
   "description": "reporting for municipalities",
   "main": "index.js",
@@ -14,8 +14,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nens/rapportage.git",
-    "name": "nens/rapportage"
+    "url": "git+https://github.com/nens/rain_report.git",
+    "name": "nens/rain_report"
   },
   "keywords": [
     "rain",
@@ -25,9 +25,9 @@
   "author": "fritzvd, roelvdberg, nens",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/nens/rapportage/issues"
+    "url": "https://github.com/nens/rain_report/issues"
   },
-  "homepage": "https://github.com/nens/rapportage#readme",
+  "homepage": "https://github.com/nens/rain_report#readme",
   "devDependencies": {
     "archiver": "^1.1.0",
     "babel-eslint": "^6.1.2",
