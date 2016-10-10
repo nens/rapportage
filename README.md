@@ -35,7 +35,7 @@ update the `version_name` in the group_vars (or individual files).
 The `staging.example` and `production.example` can be copied. Just change the
 server names under the right heading.
 
-After the deployement for now configuration is done through a `config.json`
+After the deployment for now configuration is done through a `config.json`
 file  that needs to be in the root of the directory that hosts the rain report
 site. An example can be found in `./templates/config.json.example`.
 
