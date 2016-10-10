@@ -1,6 +1,12 @@
 Changelog of rain_report
 ========================
 
+1.2.3 (2016-10-06)
+------------------
+
+- Bugfix, templates now point to correct template location.
+
+
 1.2.1 (2016-10-06)
 ------------------
 
