@@ -1,7 +1,18 @@
 Changelog of rain_report
 ========================
 
-1.1.1 (2016-10-06)
+1.2.1 (2016-10-06)
+------------------
+
+- config.json is collected through an ajax call (angulars $http) instead of
+  directly including it through a webpack require.
+
+- Moved config.json example to ./templates.
+
+- Updated README.md.
+
+
+1.2.0 (2016-10-06)
 ------------------
 
 - moved modal templates.
