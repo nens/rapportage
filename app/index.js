@@ -28,10 +28,12 @@ app.controller('MainCtrl', [
     'StateService',
     'ExtremeRainService',
     function ($q, $scope, $http, $route, UrlUtil, StateService, ExtremeRainService) {
+      $scope.loading = true;
       $scope.region = window.location.host.split('.')[0];
       // load config.json
 
       $http.get('config.json').then(function(res) {
+        $scope.loading = false;
         var config = res.data;
         var siteConfig = config.sites[$scope.region];
         if (siteConfig) {

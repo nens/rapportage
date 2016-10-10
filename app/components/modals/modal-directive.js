@@ -10,19 +10,22 @@ var modalWidget = ['$document', function($document) {
   */
 
   var modalLink = function (scope, elem) {
-    scope.info = scope.marketing = false;
-    if (!scope.active){
-      scope.marketing = true;
-      var backDrop = angular.element('<div class="modal-backdrop in"></div>');
-      var body = $document.find('body').eq(0)
-              .addClass("modal-open")
-              .append(backDrop);
-      var modalElem = angular.element(elem[0])
-          .addClass("in")
-          .css({display: "block"});
-    } else {
-      scope.info = true;
-    }
+    var body = $document.find('body').eq(0);
+    var modalElem = angular.element(elem[0]);
+    var toggleModal = function(){
+      if (!scope.active && !scope.loading){
+        scope.info = false;
+        scope.marketing = true;
+        var backDrop = angular.element(
+            '<div id="modal-backdrop" class="modal-backdrop in"></div>');
+        body.addClass("modal-open").append(backDrop);
+        modalElem.addClass("in").css({display: "block"});
+      } else {
+        scope.info = true;
+        scope.marketing = false;
+      }
+    };
+    scope.$watch('loading', toggleModal);
   };
 
   return {
@@ -30,7 +33,8 @@ var modalWidget = ['$document', function($document) {
     replace: true,
     restrict: 'E',
     scope: {
-      active: '='
+      active: '=',
+      loading: '='
     },
     template: require('./modal.html')
   };

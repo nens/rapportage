@@ -9,11 +9,6 @@
     sudo_user: "{{ build_user }}"
     get_url: url=https://github.com/nens/{{ repo_name }}/releases/download/{{ version }}/{{ version }}.zip dest=/tmp/{{ version }}.zip
 
-  - name: rm old frontend
-    sudo: yes
-    sudo_user: "{{ build_user }}"
-    file: path={{ deploy_path }} state=absent
-
   - name: mkdir
     sudo: yes
     sudo_user: "{{ build_user }}"

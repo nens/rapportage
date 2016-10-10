@@ -4,6 +4,16 @@ Changelog of rain_report
 1.2.3 (2016-10-06)
 ------------------
 
+- Bugfix, site now recognizes correctly when a region is configured.
+
+- Updated modalinfo text.
+
+- Fixes ansible deploy bug.
+
+
+1.2.3 (2016-10-06)
+------------------
+
 - Bugfix, templates now point to correct template location.
 
 
