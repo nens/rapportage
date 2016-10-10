@@ -51,7 +51,7 @@ var rainGraphWidget = ['ApiService', function (ApiService) {
                 [Date.parse('Dec 1 2016'), scope.monthlyMeans[11] * SIZE]
               ]
             }, {
-              'key': 'timeseries',
+              'key': 'Actuele maandsom',
               'color': '#16a085',
               'values': data
             }])

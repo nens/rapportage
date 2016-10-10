@@ -3,7 +3,6 @@ const config = require('./webpack.config.js');
 const WDS = require('webpack-dev-server');
 
 const PORT = process.env.PORT || 3000;
-
 config.devtool = 'eval-source-map';
 const devserver = new WDS(webpack(config), {
   // config.entry.app.unshift(
@@ -19,13 +18,16 @@ const devserver = new WDS(webpack(config), {
   proxy: [
     {
       path: '/api/v2/*',
-      target: 'http://localhost:8000' // <- backend
+      target: 'http://localhost:8000/' // <- backend
     },
     {
-      path: '/rapportage/*',
+      path: '/report/rain/*',
       target: 'http://localhost:{PORT}/'.replace('{PORT}', PORT)
+    },
+    {
+      path: '/accounts/login/*',
+      target: 'http://localhost:8000/'
     }
-
   ]
 });
 

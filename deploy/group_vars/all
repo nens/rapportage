@@ -1,9 +1,7 @@
 build_user: buildout
 
-repo_name: rapportage
+repo_name: rain_report
 
-version: 1.0.5
-
-sitename: "staging.nxt.lizard.net"
-project_path: "/srv/{{ sitename }}"
-deploy_path: "{{ project_path }}/src/rapportage"
+sitename: "integration.nxt.lizard.net"
+clientname: "rain"
+deploy_path: "/srv/{{ sitename }}_{{ clientname }}"

@@ -1,8 +1,8 @@
 {
   "defaults": {
     "rainRasterStoreUUID": "49ff8d0",
-    "wmsUrl": "/api/v2/wms?",
-    "tmsUrl": "http://{s}.tiles.mapbox.com/v3/nelenschuurmans.iaa98k8k/{z}/{x}/{y}.png",
+    "wmsUrl": "/api/v2/wms/?",
+    "tmsUrl": "https://{s}.tiles.mapbox.com/v3/nelenschuurmans.iaa98k8k/{z}/{x}/{y}.png",
     "cutOffs": {
       "fiveMinuteCutOff": 300001,
       "hourCutOff": 7200000,
@@ -69,23 +69,23 @@
         "free": false,
         "log": true,
         "data": [
-          [1.495, [255, 255, 255,   0]],
-          [1.525, [255, 255, 255,  26]],
-          [15.25, [189, 195, 199, 255]],
-          [   61, [ 52, 152, 219, 255]],
-          [76.25, [ 41, 128, 185, 255]],
-          [152.5, [141, 162, 100, 255]],
-          [  305, [241, 196,  15, 255]],
-          [  610, [231,  76,  60, 255]],
-          [  915, [193,  82, 121, 255]],
-          [ 1525, [155,  89, 182, 255]],
-          [ 1555, [155,  89, 182, 255]]
+          [4.9, [255, 255, 255,   0]],
+          [  5, [255, 255, 255,  26]],
+          [ 10, [189, 195, 199, 255]],
+          [ 25, [ 52, 152, 219, 255]],
+          [ 40, [ 41, 128, 185, 255]],
+          [ 55, [141, 162, 100, 255]],
+          [ 70, [241, 196,  15, 255]],
+          [ 85, [231,  76,  60, 255]],
+          [ 90, [193,  82, 121, 255]],
+          [100, [155,  89, 182, 255]],
+          [101, [155,  89, 182, 255]]
         ]
       }
     }
   },
-  "sites": [
-    {
+  "sites": {
+    "apeldoorn": {
       "state": {
         "regionTitle": "Apeldoorn",
         "bounds": {
@@ -120,48 +120,57 @@
             "lng": 5.9987068,
             "lat": 52.2266165
           }
-        }, {
+        },
+        {
           "title": "Stadsdeel ZuidOost",
           "geometry": {
             "lng": 5.9999084,
             "lat": 52.1986642
           }
-        }, {
+        },
+        {
           "title": "Stadsdeel ZuidWest",
           "geometry": {
             "lng": 5.9569073,
             "lat": 52.1902462
           }
-        }, {
+        },
+        {
           "title": "Stadsdeel NoordWest",
           "geometry": {
             "lng": 5.9397411,
             "lat": 52.2198076
           }
-        }, {
+        },
+        {
           "title": "Centrum",
           "geometry": {
             "lng": 5.9630442,
             "lat": 52.2129713
           }
-        }, {
+        },
+        {
           "title": "Beekbergen",
           "geometry": {
             "lng": 5.9650183,
-            "lat": 52.1613233}
-        }, {
+            "lat": 52.1613233
+          }
+        },
+        {
           "title": "Uddel",
           "geometry": {
             "lng": 5.7817268,
             "lat": 52.2588068
           }
-        }, {
+        },
+        {
           "title": "Hoenderlo",
           "geometry": {
             "lng": 5.8806038,
             "lat": 52.118075
           }
-        }, {
+        },
+        {
           "title": "Loenen",
           "geometry": {
             "lng": 6.0208082,
@@ -169,6 +178,6 @@
           }
         }
       ]
-    }
-  ]
+    },
+  }
 }

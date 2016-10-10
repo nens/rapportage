@@ -12,6 +12,11 @@ angular.module('api', [])
     'stop={stop_date}&' +
     'window=1200000';
 
+  var redirect = function(){
+    window.location.href = '//' + window.location.host +
+        '/accounts/login/?next=' + window.location.href;
+  };
+
   var rainRecurrence = function (location, uuid, date) {
     var url = RRC_BASE_URL
     .replace('{lng}', location.geometry.lng)
@@ -19,12 +24,9 @@ angular.module('api', [])
     .replace('{start_date}', date.start)
     .replace('{stop_date}', date.stop)
     .replace(/\{uuid\}/g, uuid);
-    return $http.get(url).then(function (response) {
+    return $http.get(url, {withCredentials: true}).then(function (response) {
       return response.data.data;
-    }, function () {
-      // this is the error callback but now returns the dummy
-      console.log('No rain data found.')
-    });
+    }, redirect);
   };
 
   var RAIN_BASE_URL = '/api/v2/raster-aggregates/?agg=sum&geom='
@@ -52,13 +54,9 @@ angular.module('api', [])
     .replace(/\{east\}/g, east)
     .replace(/\{west\}/g, west)
     .replace(/\{uuid\}/g, uuid);
-    return $http.get(url).then(function (response) {
+    return $http.get(url, {withCredentials: true}).then(function (response) {
       return response.data.data;
-    }, function () {
-      // this is the error callback but now returns the dummy
-      console.log('Monthly rain data not found.');
-      return { data: [] };
-    });
+    }, redirect);
   };
 
   return {
