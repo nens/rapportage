@@ -9,16 +9,31 @@
     sudo_user: "{{ build_user }}"
     get_url: url=https://github.com/nens/{{ repo_name }}/releases/download/{{ version }}/{{ version }}.zip dest=/tmp/{{ version }}.zip
 
+  - name: rm old frontend
+    sudo: yes
+    sudo_user: "{{ build_user }}"
+    command: rm -rf {{ deploy_path }}/dist
+
   - name: mkdir
     sudo: yes
     sudo_user: "{{ build_user }}"
-    file: path={{ deploy_path }} state=directory owner={{ build_user }}
+    file: >
+      path={{ project_path }}/dist
+      owner={{ build_user }}
+      group={{ build_user }}
+      mode=0755
+      state=directory
 
   - name: unzip release
     sudo: yes
     sudo_user: "{{ build_user }}"
     # unarchive: src=/tmp/{{ version}}.zip dest=/var/www/frontend
-    command: unzip /tmp/{{ version }}.zip -d {{ deploy_path }}
+    command: unzip /tmp/{{ version }}.zip -d {{ deploy_path }}/dist
+
+  - name: if config exists move config to deploy directory
+    sudo: yes
+    sudo_user: "{{ build_user }}"
+    command: "cp {{ deploy_path }}/config.json {{ deploy_path }}/dist/config.json"
 
   - name: rm tmp zip
     sudo: yes

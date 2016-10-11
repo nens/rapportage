@@ -1,7 +1,14 @@
 Changelog of rain_report
 ========================
 
-1.2.3 (2016-10-06)
+1.3.1 (2016-11-06)
+------------------
+
+- Fixes ansible deploy. Now puts everything in a dist folder in the deploy
+  directory. The config should be maintained in the deploy directory.
+
+
+1.3.0 (2016-10-06)
 ------------------
 
 - Bugfix, site now recognizes correctly when a region is configured.
