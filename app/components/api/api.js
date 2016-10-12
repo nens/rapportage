@@ -13,8 +13,8 @@ angular.module('api', [])
     'window=1200000';
 
   var redirect = function(){
-    // window.location.href = '//' + window.location.host +
-    //     '/accounts/login/?next=' + window.location.href;
+    window.location.href = '//' + window.location.host +
+        '/accounts/login/?next=' + window.location.href;
   };
 
   var rainRecurrence = function (location, uuid, date) {
