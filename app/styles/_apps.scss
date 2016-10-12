@@ -1,0 +1,131 @@
+/*****************************************
+* This is an example of a stylesheet you can use to display the `apps-button`
+* on your own website.
+*
+* It is twofold
+* 1. The Apps-button (#lizard-apps-button)
+* 2. The container with all the links (#lizard-apps-container and .lizard-apps)
+*/
+
+/**
+ *  Lizard apps css.
+ */
+#lizard-apps-button {
+  //box-sizing: border-box;
+  font-family: Roboto, sans;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: pointer;
+  padding: 10px 10px;
+  margin: -5px;
+  border: none;
+  border-radius: 0;
+  background-color: $turquoise;
+  color: #ffffff;
+}
+
+#lizard-apps-button ul.dropdown-menu {
+  border-radius: 0;
+}
+
+/* in our case the button should be shown with a white fill */
+#lizard-apps-button svg {
+  margin-right: 0.25em;
+  margin-top: 0.1em;
+  width: 11px;
+  fill: white;
+}
+
+#lizard-apps-container {
+  box-sizing: border-box;
+  font-family: Roboto, sans;
+  position: absolute;
+  top: 62px;
+  margin-top: -10px;
+  max-width: 300px;
+  color: black;
+  background: white;
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+
+/**
+ * All of this defines the nice comic book like arrow on the div
+ */
+.lizard-apps {
+  width: 100%;
+  position: relative;
+  background: white;
+  border: 0px solid white;
+}
+
+.lizard-apps:after, .lizard-apps:before {
+  bottom: 100%;
+  left: 40px;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.lizard-apps:after {
+  border-color: rgba(255, 255, 255, 0);
+  border-bottom-color: white;
+  border-width: 10px;
+  margin-left: -10px;
+}
+
+.lizard-apps:before {
+  border-color: rgba(255, 255, 255, 0);
+  border-bottom-color: white;
+  border-width: 12px;
+  margin-left: -12px;
+}
+/* end arrow definition */
+
+
+/**
+ * The icons should float left and next to each other
+ * up to 3 icons a row
+ */
+.lizard-apps .lizard-apps-icon {
+  float: left;
+}
+
+.lizard-apps .lizard-apps-icon > a {
+  padding: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+}
+
+.lizard-apps .lizard-apps-icon > a:hover {
+  transition: all 200ms cubic-bezier(0.52, 0, 0.48, 1);
+  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  -ms-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.lizard-apps .lizard-apps-icon > a img {
+  border: solid transparent;
+  border-radius: 10px;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* hide the title if necessary*/
+.lizard-apps .lizard-apps-icon > a span {
+  display: none;
+}
+.hidden {
+    display: none;
+}

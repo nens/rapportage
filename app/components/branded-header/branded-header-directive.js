@@ -8,7 +8,9 @@ var brandedHeader = function () {
   * @param  {object} elem  - dom element.
   * @return {object}       - Object with angular config
   */
-  var brandedHeaderLink = function (scope, element, attrs) {
+  var brandedHeaderLink = function (scope, element, attrs, $document) {
+      // start the apps
+      angular.element($document).ready(Lizard.startPlugins);
   };
 
   return {
