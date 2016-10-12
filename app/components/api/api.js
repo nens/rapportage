@@ -25,7 +25,11 @@ angular.module('api', [])
     .replace('{stop_date}', date.stop)
     .replace(/\{uuid\}/g, uuid);
     return $http.get(url, {withCredentials: true}).then(function (response) {
-      return response.data.data;
+      if (response.data.data === null) {
+        redirect();
+      } else {
+        return response.data.data
+      }
     }, redirect);
   };
 
@@ -55,7 +59,11 @@ angular.module('api', [])
     .replace(/\{west\}/g, west)
     .replace(/\{uuid\}/g, uuid);
     return $http.get(url, {withCredentials: true}).then(function (response) {
-      return response.data.data;
+      if (response.data.data === null) {
+        redirect();
+      } else {
+        return response.data.data;
+      }
     }, redirect);
   };
 
