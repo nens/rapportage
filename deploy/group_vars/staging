@@ -1,5 +1,0 @@
-deploy_type: staging
-
-sitename: "staging.nxt.lizard.net"
-project_path: "/srv/{{ sitename }}"
-deploy_path: "{{ project_path }}/src/rapportage"

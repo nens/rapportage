@@ -1,5 +1,0 @@
-deploy_type: development
-project_path: "/srv/fill.in.lizard.net"
-
-sitename: "localhost"
-build_user: vagrant
