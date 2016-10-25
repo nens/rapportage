@@ -33,24 +33,19 @@ h4 {
 
 .nens-div-icon svg {
   circle {
-    cx: 8px;
-    cy: 8px;
     stroke: #fff;
     stroke-width: 1px;
     fill-opacity: 0.8;
     &.outer {
-      r: 7px;
       fill: #1abc9c;
       -webkit-box-shadow: 1px 1px 3px rgba(0,0,0,1);
       -moz-box-shadow: 1px 1px 3px rgba(0,0,0,1);
       box-shadow: 1px 1px 3px rgba(0,0,0,1);
     }
     &.selected {
-      r: 7px;
       fill: #e67e22;
     }
     &.inner {
-      r: 2px;
       fill: #fff;
     }
   }

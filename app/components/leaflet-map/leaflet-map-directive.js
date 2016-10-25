@@ -31,8 +31,8 @@ var leafletMap = function () {
       className: 'nens-div-icon',
       iconAnchor: [pxSize, pxSize],
       html: '<svg id="marker-{location}">'.replace(/\{location\}/g, location)
-      + '<circle class="outer"/>'
-      + '<circle class="inner"/>'
+      + '<circle cx="8" cy="8" r="7" class="outer"/>'
+      + '<circle cx="8" cy="8" r="2" class="inner"/>'
       + '</svg>'
     });
   };
@@ -59,13 +59,13 @@ var leafletMap = function () {
         });
 
         // add map background from tms layer:
-        L.tileLayer(mapConfig.tmsUrl, {}).addTo(map);
+        L.tileLayer(mapConfig.tmsUrl, {}).setZIndex(0).addTo(map);
 
         // create context layers:
-        var markerLayer = L.layerGroup()
+        var markerLayer = L.layerGroup().setZIndex(30)
           .addTo(map);
 
-        var rainLayer = L.layerGroup()
+        var rainLayer = L.layerGroup().setZIndex(20)
           .addTo(map);
 
         var drawMarkers = function () {
@@ -88,7 +88,6 @@ var leafletMap = function () {
           // determine the timedelta and time
           var timeDelta = stop - start;
           var time = start.toISOString() + '/' + stop.toISOString();
-          console.log(time);
 
           // determine temporalsum wrapper and corresponding style
           if (timeDelta < mapConfig.cutOffs.fiveMinuteCutOff) {
@@ -107,9 +106,8 @@ var leafletMap = function () {
             var style = 'radar-month';
             var layer = 'radar/temporalsum_day';
           }
-          scope.legendColors = legends[style];
-
-          console.log(style, layer);
+          scope.legendColors = legends[style].slice(
+              0, legends[style].length - 1);
 
           // create the layer and add it to the map.
           rainLayer.clearLayers();
@@ -128,7 +126,6 @@ var leafletMap = function () {
         };
 
         var updateExtremeRain = function (rainTMax) {
-          console.log(scope.date, scope.rainTMax, scope.type);
           if (rainTMax && scope.type === 'recurrence') {
             // first highlight the right marker
             var markerId = '#marker-' + rainTMax.location.replace( /\s+/g, '' );

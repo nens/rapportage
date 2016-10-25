@@ -8,8 +8,9 @@ var brandedHeader = function () {
   * @param  {object} elem  - dom element.
   * @return {object}       - Object with angular config
   */
-  var brandedHeaderLink = function (scope, element, attrs) {
-    scope.city = 'Apeldoorn'
+  var brandedHeaderLink = function (scope, element, attrs, $document) {
+      // start the apps
+      angular.element($document).ready(Lizard.startPlugins);
   };
 
   return {
@@ -17,6 +18,7 @@ var brandedHeader = function () {
     replace: true,
     restrict: 'E',
     scope: {
+      region: '=',
       reportType: '=',
       date: '='
     },

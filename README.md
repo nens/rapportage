@@ -26,7 +26,6 @@ To tag this as a new release and to add the dist folder to the release attachmen
 	npm run buck-trap
 
 NOTE: buck-trap assumes:
-
     There is a package.json.
     You release from master branch.
     There is a dist folder which will be attached to the release on github

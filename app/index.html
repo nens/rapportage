@@ -1,8 +1,8 @@
 <!DOCTYPE HTML>
-<html lang="en" ng-app="rapportage">
+<html lang="en" ng-app="rain_report">
   <head>
     <meta charset="utf-8">
-    <title>Lizard - Rapportage</title>
+    <title>Lizard - Regenrapportage</title>
 
     <link rel="icon" href="/images/favicon.png" />
     <!-- you don't need to keep this, but it's cool for stats! -->
@@ -13,10 +13,15 @@
   </head>
   <body>
     <div class="container" ng-controller="MainCtrl">
+      <modal type="modalType" active="modalActive" loading="loading"></modal>
 
       <date-picker year="state.year" month="state.month"></date-picker>
 
-      <branded-header report-type="state.reportType" date="state.date"></branded-header>
+      <branded-header
+        region="state.regionTitle"
+        report-type="state.reportType"
+        date="state.date">
+      </branded-header>
 
       <div class="row map-row">
 
@@ -60,5 +65,7 @@
       </div>
 
     </div>
+      <script src="https://apps.lizard.net/screens/apeldoornregenrapportage.js"
+              class="hidden"></script>
   </body>
 </html>

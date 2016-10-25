@@ -32,6 +32,7 @@ const config = {
   },
   plugins: [
     new CopyWebpackPlugin([
+      { from: 'app/templates', to: 'templates/'},
       { from: 'app/images', to: 'images/'},
       { from: 'app/config.json'}
     ]),
