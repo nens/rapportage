@@ -1,3 +1,22 @@
+# Change Log
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+<a name="1.4.0"></a>
+# [1.4.0](https://github.com/nens/rain_report/compare/1.3.2...v1.4.0) (2016-10-27)
+
+
+### Bug Fixes
+
+* **submodule:** submodule not instantiated properly ([00d5490](https://github.com/nens/rain_report/commit/00d5490))
+
+
+### Features
+
+* **releasing:** added buck-trap and client-deployment ([aabebb3](https://github.com/nens/rain_report/commit/aabebb3))
+
+
+
 Changelog of rain_report
 ========================
 
