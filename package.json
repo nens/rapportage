@@ -6,9 +6,8 @@
   "scripts": {
     "test": "karma start",
     "start": "node webpack-dev-server",
+    "buck-trap": "buck-trap -a",
     "build": "webpack -p -progress --colors --optimize-minimize",
-    "release": "release-it",
-    "release-asset": "node release-asset.js",
     "lint": "./node_modules/.bin/eslint -c .eslintrc app/ && ./node_modules/.bin/eslint -c .eslintrc test/",
     "wpd": "webpack-dev-server --progress --colors --hot --inline --port 3000 --host 127.0.0.1"
   },
@@ -31,7 +30,8 @@
   "devDependencies": {
     "archiver": "^1.1.0",
     "babel-eslint": "^6.1.2",
-    "bootstrap-loader": "1.2.0-beta.1",
+    "bootstrap-loader": "^1.2.0-beta.1",
+    "buck-trap": "^1.0.14",
     "copy-webpack-plugin": "^3.0.1",
     "css-loader": "^0.23.1",
     "eslint": "^2.10.2",

@@ -1,7 +1,0 @@
-build_user: buildout
-
-repo_name: rain_report
-
-sitename: "integration.nxt.lizard.net"
-clientname: "rain"
-deploy_path: "/srv/{{ sitename }}_{{ clientname }}"
