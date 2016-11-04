@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.5.0"></a>
+# [1.5.0](https://github.com/nens/rain_report/compare/v1.4.0...v1.5.0) (2016-11-04)
+
+
+### Features
+
+* **print:** Makes rain reports printable. ([d581a49](https://github.com/nens/rain_report/commit/d581a49))
+
+
+
 <a name="1.4.0"></a>
 # [1.4.0](https://github.com/nens/rain_report/compare/1.3.2...v1.4.0) (2016-10-27)
 
@@ -15,6 +25,12 @@ All notable changes to this project will be documented in this file. See [standa
 
 * **releasing:** added buck-trap and client-deployment ([aabebb3](https://github.com/nens/rain_report/commit/aabebb3))
 
+
+==========================
+This is where we changed the way we do changelogs. First we did this by hand. We now use nens/buck-trap. It uses the commit messages to create a changelog.
+
+The changelogs for the releases 4.1.16 and 4.2.0 (and everything in between) might suffer because of it. Because we didn't merge everything properly. After this all should be fine and fixed.
+==========================
 
 
 Changelog of rain_report
