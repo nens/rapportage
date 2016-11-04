@@ -1,13 +1,25 @@
-<nav class="navbar navbar-full navbar-dark turquoise bg-faded">
-    <div class="pull-md-left h4">{{ reportType }} Regenrapportage - {{ date | date: 'LLLL yyyy'}}</div>
-    <div class="pull-md-right">
-      <div class="report-image">
-        <img ng-src="images/branding/{{ region }}.png" alt="{{ region }} logo"/>
-      </div>
-    </div>
-    <div class="pull-right">
-      <div id="lizard-apps-button" title="Apps"></div>
-      <div id="lizard-apps-container"></div>
-    </div>
+<div class="nav-div">
+    <table class="print-only">
+        <tr>
+            <td class="print-report-title">
+                {{ reportType }} Regenrapportage - {{ date | date: 'LLLL yyyy'}}
+            </td>
+            <td class="print-report-img">
+                <img class="print-only-img" ng-src="images/branding/{{ region }}.png" alt="{{ region }} logo"/>
+            </td>
+        </tr>
+    </table>
+    <nav class="navbar navbar-full navbar-dark turquoise bg-faded">
+        <div class="pull-md-left h4">{{ reportType }} Regenrapportage - {{ date | date: 'LLLL yyyy'}}</div>
+        <div class="pull-md-right">
+          <div class="report-image">
+            <img ng-src="images/branding/{{ region }}.png" alt="{{ region }} logo"/>
+          </div>
+        </div>
+        <div class="pull-right">
+          <div id="lizard-apps-button" title="Apps"></div>
+          <div id="lizard-apps-container"></div>
+        </div>
 
-</nav>
+    </nav>
+</div>

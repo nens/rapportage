@@ -1,10 +1,10 @@
-<div>
+<div ng-class="{'print-hidden': !show}">
   <div class="row">
     <div class="col-md-12 recurrence recurrence-title" ng-click="toggleContent()" ng-class="{'recurrence-selected': location.title === rainTMax.location}">
       {{ location.title }}
     </div>
   </div>
-  <div ng-class="{show: show}" class="row recurrence recurrence-content">
+  <div ng-class="{show: show, 'print-hidden': !show}" class="row recurrence recurrence-content">
     <table class="table col-md-12">
       <thead>
         <tr>

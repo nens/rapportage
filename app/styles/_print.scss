@@ -1,0 +1,72 @@
+.print-only {
+  visibility: hidden;
+}
+@media print {
+  .nav-div {
+      margin-left: -10px;
+      margin-right: -10px;
+  }
+  .print-only {
+    table {
+      width: 100%;
+    }
+    visibility: visible;
+    background-color: $turquoise;
+    font-size: 1.5em;
+    color: $white;
+    width: 100%;
+  }
+  .print-report-title {
+    padding: 5px 15px 5px 15px;
+    text-transform: capitalize;
+  }
+  .print-report-img {
+    padding: 0;
+    text-align: right;
+    vertical-align: center;
+  }
+  .print-only-img {
+    padding: 5px;
+    max-height: 50px;
+    background-color: $white;
+  }
+  .ng-isolate-scope {
+    visibility: visible;
+  }
+  body {
+    height: 800px;
+  }
+  .root-container {
+    width: 800px;
+  }
+  .rain-map-widget {
+    width: 400px !important;
+  }
+  .map-element {
+    height: 250px !important;
+  }
+  #lizard-apps-button {
+    visibility: hidden;
+  }
+  .navbar .navbar-full .navbar-dark {
+    visibility: visible !important;
+  }
+  // remove
+  .print-hidden {
+    visibility: hidden;
+    height: 0;
+  }
+  // center leaflet maps:
+  div.leaflet-tile-container {
+    left: -75px!important;
+    top: -50px!important;
+  }
+  div.leaflet-marker-pane {
+    left: -75px!important;
+    top: -50px!important;
+  }
+  // no buttons on top:
+  .list-inline {
+    visibility: hidden;
+  }
+}
