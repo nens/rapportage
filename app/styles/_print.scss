@@ -30,6 +30,13 @@
     max-height: 50px;
     background-color: $white;
   }
+  .recurrence-content {
+    font-size: 0.8em;
+  }
+  td {
+    line-height: 0.5em;
+    font-size: 0.8em;
+  }
   .ng-isolate-scope {
     visibility: visible;
   }
