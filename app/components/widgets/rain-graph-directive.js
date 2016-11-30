@@ -28,7 +28,7 @@ var rainGraphWidget = ['ApiService', function (ApiService) {
       .showControls(false)   // Allow user to switch between 'Grouped' and 'Stacked' mode.
       .groupSpacing(0.1);   // Distance between each group of bars. // transitionDuration
     var chartPrint = nv.models.multiBarChart()
-      .width(850)
+      .width(800)
       .x(function (d) { return months[new Date(d[0] - 1296000000).getUTCMonth()]; })
       .y(function (d) { return d[1] / SIZE; })
       // TODO: ^-- SIZE = 1200 was picked as a hack that seems to give a
