@@ -17,7 +17,7 @@ var rainGraphWidget = ['ApiService', function (ApiService) {
     var months = ['jan', 'feb', 'mrt', 'apr', 'mei', 'jun', 'jul', 'aug',
       'sep', 'okt', 'nov', 'dec'];
     var chart = nv.models.multiBarChart()
-      .x(function (d) { return months[new Date(d[0] + 1296000000).getUTCMonth()]; })
+      .x(function (d) { return months[new Date(d[0] - 1296000000).getUTCMonth()]; })
       .y(function (d) { return d[1] / SIZE; })
       // TODO: ^-- SIZE = 1200 was picked as a hack that seems to give a
       // TODO:     correct value. This hack is used because the raster-store

@@ -6,6 +6,12 @@
       margin-left: -10px;
       margin-right: -10px;
   }
+.recurrence-row-selected {
+  border-bottom: 2px solid $carrot;
+  color: $carrot;
+  font-weight: bold;
+}
+
   .print-only {
     table {
       width: 100%;
