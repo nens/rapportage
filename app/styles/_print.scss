@@ -22,6 +22,9 @@
     color: $white;
     width: 100%;
   }
+  svg.print-only  {
+    background-color: #fff;
+  }
   .print-report-title {
     padding: 5px 15px 5px 15px;
     text-transform: capitalize;
@@ -80,6 +83,16 @@
   }
   // no buttons on top:
   .list-inline {
+    visibility: hidden;
+  }
+  .rain-graph {
+    background-color: #fff;
+    margin: -300px 0 0 -50px;
+    width: 850px;
+    height: 300px;
+  }
+  .no-print {
+    height: 0;
     visibility: hidden;
   }
 }
