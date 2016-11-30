@@ -41,7 +41,7 @@ var rainGraphWidget = ['ApiService', function (ApiService) {
       .groupSpacing(0.1);   // Distance between each group of bars. // transitionDuration
 
     var doChart = function () {
-      // if (scope.bounds && scope.year && scope.monthlyMeans) {
+      if (scope.bounds && scope.year && scope.monthlyMeans) {
         ApiService.getMonthlyRain(scope.bounds, scope.year, scope.uuid)
           .then(function (data) {
             d3.select(elem[0].children[0])
@@ -94,7 +94,7 @@ var rainGraphWidget = ['ApiService', function (ApiService) {
             .call(chartPrint);
           }
         );
-      // }
+      }
     };
 
     nv.addGraph(function () {
