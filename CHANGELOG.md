@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.5.7"></a>
+## [1.5.7](https://github.com/nens/rain_report/compare/v1.5.6...v1.5.7) (2016-11-30)
+
+
+### Bug Fixes
+
+* **rain-graph:** monthly rain starts in januari. ([bdd2799](https://github.com/nens/rain_report/commit/bdd2799))
+
+
+
 <a name="1.5.6"></a>
 ## [1.5.6](https://github.com/nens/rain_report/compare/v1.5.5...v1.5.6) (2016-11-30)
 
