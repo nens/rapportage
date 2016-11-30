@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.5.5"></a>
+## [1.5.5](https://github.com/nens/rain_report/compare/v1.5.4...v1.5.5) (2016-11-30)
+
+
+### Bug Fixes
+
+* **rain-graph:** monthly rain is shifted back a month. ([cf2871c](https://github.com/nens/rain_report/commit/cf2871c))
+
+
+
 <a name="1.5.4"></a>
 ## [1.5.4](https://github.com/nens/rain_report/compare/v1.5.3...v1.5.4) (2016-11-04)
 
