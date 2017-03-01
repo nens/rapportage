@@ -1,6 +1,7 @@
 {
   "defaults": {
-    "rainRasterStoreUUID": "49ff8d0",
+    "rainRasterStoreUUID": "b39df484",
+    "monthRainRasterStoreUUID": "b39df484",
     "wmsUrl": "/api/v2/wms/?",
     "tmsUrl": "https://{s}.tiles.mapbox.com/v3/nelenschuurmans.iaa98k8k/{z}/{x}/{y}.png",
     "cutOffs": {
@@ -85,7 +86,7 @@
     }
   },
   "sites": {
-    "apeldoorn": {
+    "localhost:3000": {
       "state": {
         "regionTitle": "Apeldoorn",
         "bounds": {
@@ -97,7 +98,8 @@
             "lat": 52.1,
             "lng": 5.8
           }
-        }
+        },
+        "area": 495.681
       },
       "monthlyMeans": [
         69,

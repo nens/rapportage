@@ -1,0 +1,6 @@
+{
+    "Aggregate": {
+        "store": "day",
+        "amount": 256
+    }
+}

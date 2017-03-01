@@ -45,6 +45,7 @@ tmp/
 dist/
 
 # ansible stuffs
+deploy
 deploy/auth.json
 deploy/hosts
 deploy.retry
