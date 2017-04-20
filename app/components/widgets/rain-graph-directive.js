@@ -88,7 +88,6 @@ var rainGraphWidget = ['ApiService', function (ApiService) {
     };
 
     nv.addGraph(function () {
-      // TODO: when monthly rain amount is correct fix axis below.
       chart.showYAxis(false);
       chart.yAxis
       .tickFormat(d3.format(',.1f'))
