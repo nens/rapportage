@@ -33,7 +33,7 @@ angular.module('api', [])
     }, redirect);
   };
 
-  var RAIN_BASE_URL = '/api/v2/raster-aggregates/?agg=sum&geom='
+  var RAIN_BASE_URL = '/api/v2/raster-aggregates/?agg=average&geom='
   + 'POLYGON(('
   + '{west}+{south},+'
   + '{east}+{south},+'
@@ -45,6 +45,7 @@ angular.module('api', [])
   + 'start={start}-12-31T23:00:00&'
   + 'stop={stop}-12-31T23:00:00&'
   + 'window=2635200000';
+
   var getMonthlyRain = function (bounds, year, uuid) {
     var north = bounds._northEast.lat;
     var east = bounds._northEast.lng;

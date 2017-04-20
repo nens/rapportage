@@ -5,11 +5,11 @@ const WDS = require('webpack-dev-server');
 const PORT = process.env.PORT || 3000;
 config.devtool = 'eval-source-map';
 const devserver = new WDS(webpack(config), {
-  // config.entry.app.unshift(
-  //   "webpack-dev-server/client?http://0.0.0.0:{PORT}/"
-  //     .replace('{PORT}', PORT),
-  //   "webpack/hot/dev-server"
-  // );
+//   config.entry.app.unshift(
+//     "webpack-dev-server/client?http://0.0.0.0:{PORT}/"
+//       .replace('{PORT}', PORT),
+//     "webpack/hot/dev-server"
+//   );
   hot: true,
   inline: true,
   progress: true,
@@ -17,12 +17,12 @@ const devserver = new WDS(webpack(config), {
   stats: { colors: true },
   proxy: [
     {
-      path: '/api/v2/*',
+      path: '/api/v3/*',
       target: 'http://localhost:8000/' // <- backend
     },
     {
       path: '/report/rain/*',
-      target: 'http://localhost:{PORT}/'.replace('{PORT}', PORT)
+      target: 'http://localhost:3000/'
     },
     {
       path: '/accounts/login/*',
