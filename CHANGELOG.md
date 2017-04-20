@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.6.20"></a>
+## [1.6.20](https://github.com/nens/rain_report/compare/v1.6.19...v1.6.20) (2017-04-20)
+
+
+### Bug Fixes
+
+* **recurrence-graph:** date parsing for Internet Explorer. ([3533427](https://github.com/nens/rain_report/commit/3533427))
+
+
+
 <a name="1.6.19"></a>
 ## [1.6.19](https://github.com/nens/rain_report/compare/v1.6.18...v1.6.19) (2017-04-20)
 
