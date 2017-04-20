@@ -20,7 +20,7 @@ Releasing
 =========
 To start off, make sure webpack has a built version in the dist folder 
 
-        npm run build
+	npm run build
 
 This creates a build in the dist/ folder.
 
