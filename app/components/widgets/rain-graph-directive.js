@@ -88,12 +88,12 @@ var rainGraphWidget = ['ApiService', function (ApiService) {
     };
 
     nv.addGraph(function () {
-      chart.showYAxis(false);
+      chart.showYAxis(true);
       chart.yAxis
       .tickFormat(d3.format(',.1f'))
       .axisLabel('Regen (mm)');
 
-      chartPrint.showYAxis(false);
+      chartPrint.showYAxis(true);
       chartPrint.yAxis
       .tickFormat(d3.format(',.1f'))
       .axisLabel('Regen (mm)');
