@@ -18,7 +18,10 @@ app and sets up the basic html
 
 Releasing
 =========
-To start off, make sure webpack has a built version in the dist folder `npm run build`
+To start off, make sure webpack has a built version in the dist folder 
+
+	npm run build
+
 This creates a build in the dist/ folder.
 
 To tag this as a new release and to add the dist folder to the release attachments you we use nens/buck-trap. It versions your repo and changes the changelog for you.
