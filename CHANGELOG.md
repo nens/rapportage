@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.6.21"></a>
+## [1.6.21](https://github.com/nens/rain_report/compare/v1.6.20...v1.6.21) (2017-04-20)
+
+
+### Bug Fixes
+
+* **internet explorer:** removes string repeat argument which ie11 doesn't know yet. ([e6d9fda](https://github.com/nens/rain_report/commit/e6d9fda))
+
+
+
 <a name="1.6.20"></a>
 ## [1.6.20](https://github.com/nens/rain_report/compare/v1.6.19...v1.6.20) (2017-04-20)
 
