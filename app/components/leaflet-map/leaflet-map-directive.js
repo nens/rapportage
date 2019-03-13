@@ -92,19 +92,19 @@ var leafletMap = function () {
           // determine temporalsum wrapper and corresponding style
           if (timeDelta < mapConfig.cutOffs.fiveMinuteCutOff) {
             var style = 'radar-5min';
-            var layer = 'radar/temporalsum_5min';
+            var layer = 'rain_temporal5min';
           } else if (timeDelta < mapConfig.cutOffs.hourCutOff) {
             var style = 'radar-hour';
-            var layer = 'radar/temporalsum_5min';
+            var layer = 'rain_temporal5min';
           } else if (timeDelta < mapConfig.cutOffs.dayCutOff) {
             var style = 'radar-day';
-            var layer = 'radar/temporalsum_5min';
+            var layer = 'rain_temporal5min';
           } else if (timeDelta < mapConfig.cutOffs.monthCutOff) {
             var style = 'radar-month';
-            var layer = 'radar/temporalsum_hour';
+            var layer = 'rain_temporalhour';
           } else {
             var style = 'radar-month';
-            var layer = 'radar/temporalsum_day';
+            var layer = 'rain_temporalday';
           }
           scope.legendColors = legends[style].slice(
               0, legends[style].length - 1);
