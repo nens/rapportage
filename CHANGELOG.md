@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.6.25"></a>
+## [1.6.25](https://github.com/nens/rain_report/compare/v1.6.24...v1.6.25) (2019-04-12)
+
+
+### Bug Fixes
+
+* **config:** Adds config.json. ([785a91e](https://github.com/nens/rain_report/commit/785a91e))
+* **config:** Adds config.json. ([a9b1694](https://github.com/nens/rain_report/commit/a9b1694))
+
+
+
 <a name="1.6.24"></a>
 ## [1.6.24](https://github.com/nens/rain_report/compare/v1.6.23...v1.6.24) (2019-03-14)
 
