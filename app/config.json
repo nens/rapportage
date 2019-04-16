@@ -273,6 +273,100 @@
         }
       ]
     },
+    "demo" : {
+      "state": {
+        "regionTitle": "localhost:3000",
+        "bounds": {
+          "northeast": {
+            "lat": 52.3,
+            "lng": 6.0
+          },
+          "southwest": {
+            "lat": 52.1,
+            "lng": 5.8
+          }
+        }
+      },
+      "monthlyMeans": [
+        69,
+        56,
+        66,
+        42,
+        61,
+        65,
+        81,
+        72,
+        78,
+        82,
+        79,
+        75
+      ],
+      "locations": [
+        {
+          "title": "Stadsdeel NoordOost",
+          "geometry": {
+            "lng": 5.9987068,
+            "lat": 52.2266165
+          }
+        },
+        {
+          "title": "Stadsdeel ZuidOost",
+          "geometry": {
+            "lng": 5.9999084,
+            "lat": 52.1986642
+          }
+        },
+        {
+          "title": "Stadsdeel ZuidWest",
+          "geometry": {
+            "lng": 5.9569073,
+            "lat": 52.1902462
+          }
+        },
+        {
+          "title": "Stadsdeel NoordWest",
+          "geometry": {
+            "lng": 5.9397411,
+            "lat": 52.2198076
+          }
+        },
+        {
+          "title": "Centrum",
+          "geometry": {
+            "lng": 5.9630442,
+            "lat": 52.2129713
+          }
+        },
+        {
+          "title": "Beekbergen",
+          "geometry": {
+            "lng": 5.9650183,
+            "lat": 52.1613233
+          }
+        },
+        {
+          "title": "Uddel",
+          "geometry": {
+            "lng": 5.7817268,
+            "lat": 52.2588068
+          }
+        },
+        {
+          "title": "Hoenderlo",
+          "geometry": {
+            "lng": 5.8806038,
+            "lat": 52.118075
+          }
+        },
+        {
+          "title": "Loenen",
+          "geometry": {
+            "lng": 6.0208082,
+            "lat": 52.1171791
+          }
+        }
+      ]
+    },
     "apeldoorn": {
       "state": {
         "regionTitle": "Apeldoorn",
