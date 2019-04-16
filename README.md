@@ -16,6 +16,30 @@ The `app/index.html` and `app/index.js` define the starting points of the app.
 If you like to get started with development look there. It starts the angular
 app and sets up the basic html
 
+PROXY and STAGING
+=================
+
+Proxying to production/staging or deploying to staging is quite cumbersome.
+
+For now it is not possible to deploy the same version to staging as to production namely:
+The uuid of the rain raster is hardcoded in the root of the config.json.
+When deploying to staging is absolutely required then change to the following line in the config.json:
+"rainRasterStoreUUID":"3e5f56a7-b16e-4deb-8449-cc2c88805159",
+This is the uuid of a rain raster available on staging. So this version will not work on production.
+The same trick needs to be done when proxying to staging.
+
+Proxying in general also requires a username password, but this is not configured in webpack.
+You will need to configure this in webpack manually, but make sure not to commit this to git !
+Below is an example of a proxy username password:
+
+proxy: {
+    '/api/v2': {
+      target: 'https://demo.lizard.net/',
+      secure: false,
+      changeOrigin: true,
+			auth: 'my_username:my_password'
+    },
+
 Releasing
 =========
 To start off, make sure webpack has a built version in the dist folder 
@@ -52,3 +76,7 @@ Deployment
 For the deployment of frontend repositories we make use of an Ansible script in the lizard-nxt repository.
 More information is provided in the readme file of lizard-nxt: https://github.com/nens/lizard-nxt/blob/master/README.rst
 Look below the heading "Deployment clients".
+
+
+
+
