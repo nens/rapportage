@@ -16,10 +16,10 @@ const devserver = new WDS(webpack(config), {
   contentBase: './app',
   stats: { colors: true },
   proxy: {
-    '/api/v3': {
+    '/api/v2': {
       target: 'https://demo.lizard.net/',
       secure: false,
-      changeOrigin: true
+      changeOrigin: true,
     },
     /* '/report/rain': {
      *   target: 'https://demo.lizard.net/',
