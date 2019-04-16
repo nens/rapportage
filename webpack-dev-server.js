@@ -15,20 +15,23 @@ const devserver = new WDS(webpack(config), {
   progress: true,
   contentBase: './app',
   stats: { colors: true },
-  proxy: [
-    {
-      path: '/api/v3/*',
-      target: 'http://localhost:8000/' // <- backend
+  proxy: {
+    '/api/v3': {
+      target: 'https://demo.lizard.net/',
+      secure: false,
+      changeOrigin: true
     },
-    {
-      path: '/report/rain/*',
-      target: 'http://localhost:3000/'
-    },
-    {
-      path: '/accounts/login/*',
-      target: 'http://localhost:8000/'
+    /* '/report/rain': {
+     *   target: 'https://demo.lizard.net/',
+     *   secure: false,
+     *   changeOrigin: true
+     * },*/
+    '/accounts/login': {
+      target: 'https://demo.lizard.net/',
+      secure: false,
+      changeOrigin: true
     }
-  ]
+  }
 });
 
 devserver.listen(PORT, '0.0.0.0');
