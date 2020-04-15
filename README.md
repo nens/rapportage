@@ -5,6 +5,9 @@ Rapportage over de regenradar per gemeente.
 ```bash
 npm install
 
+Before you start on development move the file /app/templates/config.json.development to /app/config.json.  
+The existing config.json file can be overwritten. The existing file might be a staging or production version (see also under release). 
+
 # start the webpack dev server
 npm start
 
@@ -42,7 +45,24 @@ proxy: {
 
 Releasing
 =========
-To start off, make sure webpack has a built version in the dist folder 
+
+! IMPORTANT READ THIS !
+Unfortuenedly the config.json file used by the app is sometimes changed directly on the server by advicers.  
+Before making a release it is thus important to retrieve the latest version of the file from the server.  
+This also implicates that a release should only be made right before deploying !
+Also the config.json file for staging is different then for production so both require a seperate release :(  
+
+Use the secure copy command to retrieve the file from the server (need to be authenticated on server).  
+Staging:  
+
+  scp your_username@<staging_server>:/srv/nxt3.staging.lizard.net-clients/rain_report/config.json /home/tomdeboer/dev/rain_report/app/templates/config.json.staging  
+
+Production:
+  scp your_username@<staging_server>:/srv/nxt.lizard.net-clients/rain_report/config.json /home/tomdeboer/dev/rain_report/app/templates/config.json.prod 
+
+Now move this file to /app/config.json and make the changes you need to it.  
+
+Now run make a distributable file 
 
 	npm run build
 
