@@ -3,7 +3,7 @@ var angular = require('angular');
 angular.module('api', [])
 .service('ApiService', ['$http', function ($http) {
 
-  var RRC_BASE_URL = '/api/v2/raster-aggregates/?' +
+  var RRC_BASE_URL = '/api/v3/raster-aggregates/?' +
     'agg=rrc&' +
     'geom=POINT+({lng}+{lat})&' +
     'rasters={uuid}&' +
@@ -35,7 +35,7 @@ angular.module('api', [])
     }, redirect);
   };
 
-  var RAIN_BASE_URL = '/api/v2/raster-aggregates/?agg=average&geom='
+  var RAIN_BASE_URL = '/api/v3/raster-aggregates/?agg=average&geom='
   + 'POLYGON(('
   + '{west}+{south},+'
   + '{east}+{south},+'

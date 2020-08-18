@@ -1,7 +1,7 @@
 {
   "defaults" : {
     "rainRasterStoreUUID":"730d6675",
-    "wmsUrl": "/api/v2/wms/?",
+    "wmsUrl": "/api/v3/wms/?",
     "tmsUrl": "https://api.mapbox.com/styles/v1/nelenschuurmans/ck8sgpk8h25ql1io2ccnueuj6/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibmVsZW5zY2h1dXJtYW5zIiwiYSI6ImhkXzhTdXcifQ.3k2-KAxQdyl5bILh_FioCw",
     "cutOffs": {
       "fiveMinuteCutOff": 300001,
