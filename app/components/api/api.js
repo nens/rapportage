@@ -12,9 +12,11 @@ angular.module('api', [])
     'stop={stop_date}&' +
     'window=1200000';
 
-  var redirect = function(){
-    window.location.href = '//' + window.location.host +
-        '/accounts/login/?next=' + window.location.href;
+  var redirect = function () {
+    // Comment out the next 2 lines to prevent the redirect for development.
+    // They should be uncommented when merging to master and putting it on staging/ master.
+    // window.location.href = '//' + window.location.host +
+    //     '/accounts/login/?next=' + window.location.href;
   };
 
   var rainRecurrence = function (location, uuid, date) {
