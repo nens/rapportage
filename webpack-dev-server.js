@@ -19,7 +19,7 @@ const devserver = new WDS(webpack(config), {
     '/api/v3': {
       target: 'https://demo.lizard.net/',
       secure: false,
-      changeOrigin: true,
+      changeOrigin: true
     },
     /* '/report/rain': {
      *   target: 'https://demo.lizard.net/',
