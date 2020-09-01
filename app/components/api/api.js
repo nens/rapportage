@@ -14,7 +14,6 @@ angular.module('api', [])
 
   var redirect = function () {
     // Comment out the next 2 lines to prevent the redirect for development.
-    // They should be uncommented when merging to master and putting it on staging/ master.//to do: make a note about this for the readme!
     window.location.href = '//' + window.location.host +
         '/accounts/login/?next=' + window.location.href;
   };
