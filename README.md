@@ -57,7 +57,7 @@ You will need to configure this in webpack manually, but make sure not to commit
 Below is an example of a proxy username password:
 
 proxy: {
-    '/api/v2': {
+    '/api/v3': {
       target: 'https://demo.lizard.net/',
       secure: false,
       changeOrigin: true,

@@ -3,7 +3,7 @@ var angular = require('angular');
 angular.module('api', [])
 .service('ApiService', ['$http', function ($http) {
 
-  var RRC_BASE_URL = '/api/v2/raster-aggregates/?' +
+  var RRC_BASE_URL = '/api/v3/raster-aggregates/?' +
     'agg=rrc&' +
     'geom=POINT+({lng}+{lat})&' +
     'rasters={uuid}&' +
@@ -12,7 +12,8 @@ angular.module('api', [])
     'stop={stop_date}&' +
     'window=1200000';
 
-  var redirect = function(){
+  var redirect = function () {
+    // Comment out the next 2 lines to prevent the redirect for development.
     window.location.href = '//' + window.location.host +
         '/accounts/login/?next=' + window.location.href;
   };
@@ -33,7 +34,7 @@ angular.module('api', [])
     }, redirect);
   };
 
-  var RAIN_BASE_URL = '/api/v2/raster-aggregates/?agg=average&geom='
+  var RAIN_BASE_URL = '/api/v3/raster-aggregates/?agg=average&geom='
   + 'POLYGON(('
   + '{west}+{south},+'
   + '{east}+{south},+'

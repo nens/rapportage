@@ -2,6 +2,86 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.6.45"></a>
+## [1.6.45](https://github.com/nens/rain_report/compare/v1.6.44...v1.6.45) (2020-09-01)
+
+
+
+<a name="1.6.44"></a>
+## [1.6.44](https://github.com/nens/rain_report/compare/v1.6.43...v1.6.44) (2020-08-31)
+
+
+
+<a name="1.6.43"></a>
+## [1.6.43](https://github.com/nens/rain_report/compare/v1.6.42...v1.6.43) (2020-08-31)
+
+
+
+<a name="1.6.42"></a>
+## [1.6.42](https://github.com/nens/rain_report/compare/v1.6.41...v1.6.42) (2020-08-31)
+
+
+
+<a name="1.6.41"></a>
+## [1.6.41](https://github.com/nens/rain_report/compare/v1.6.40...v1.6.41) (2020-08-31)
+
+
+
+<a name="1.6.40"></a>
+## [1.6.40](https://github.com/nens/rain_report/compare/v1.6.39...v1.6.40) (2020-08-31)
+
+
+
+<a name="1.6.39"></a>
+## [1.6.39](https://github.com/nens/rain_report/compare/v1.6.38...v1.6.39) (2020-08-31)
+
+
+
+<a name="1.6.38"></a>
+## [1.6.38](https://github.com/nens/rain_report/compare/v1.6.37...v1.6.38) (2020-08-31)
+
+
+
+<a name="1.6.37"></a>
+## [1.6.37](https://github.com/nens/rain_report/compare/v1.6.36...v1.6.37) (2020-08-31)
+
+
+
+<a name="1.6.36"></a>
+## [1.6.36](https://github.com/nens/rain_report/compare/v1.6.35...v1.6.36) (2020-08-31)
+
+
+
+<a name="1.6.35"></a>
+## [1.6.35](https://github.com/nens/rain_report/compare/v1.6.34...v1.6.35) (2020-08-31)
+
+
+
+<a name="1.6.34"></a>
+## [1.6.34](https://github.com/nens/rain_report/compare/v1.6.33...v1.6.34) (2020-08-31)
+
+
+
+<a name="1.6.33"></a>
+## [1.6.33](https://github.com/nens/rain_report/compare/v1.6.32...v1.6.33) (2020-08-31)
+
+
+
+<a name="1.6.32"></a>
+## [1.6.32](https://github.com/nens/rain_report/compare/v1.6.31...v1.6.32) (2020-08-26)
+
+
+
+<a name="1.6.31"></a>
+## [1.6.31](https://github.com/nens/rain_report/compare/v1.6.30...v1.6.31) (2020-08-26)
+
+
+
+<a name="1.6.30"></a>
+## [1.6.30](https://github.com/nens/rain_report/compare/v1.6.29...v1.6.30) (2020-08-26)
+
+
+
 <a name="1.6.29"></a>
 ## [1.6.29](https://github.com/nens/rain_report/compare/v1.6.28...v1.6.29) (2020-05-15)
 

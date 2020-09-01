@@ -1,6 +1,6 @@
 {
   "name": "rain_report",
-  "version": "1.6.29",
+  "version": "1.6.47",
   "description": "reporting for municipalities",
   "main": "index.js",
   "scripts": {
@@ -31,7 +31,7 @@
     "archiver": "^1.1.0",
     "babel-eslint": "^6.1.2",
     "bootstrap-loader": "1.2.0-beta.1",
-    "buck-trap": "^1.0.14",
+    "buck-trap": "^1.0.15",
     "copy-webpack-plugin": "^3.0.1",
     "css-loader": "^0.23.1",
     "eslint": "^2.10.2",
