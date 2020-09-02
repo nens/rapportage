@@ -29,7 +29,11 @@ app.controller('MainCtrl', [
     'ExtremeRainService',
     function ($q, $scope, $http, $route, UrlUtil, StateService, ExtremeRainService) {
       $scope.loading = true;
-      $scope.region = window.location.host.split('.')[0];
+      var urlRegion = window.location.host.split('.')[0];
+      if (urlRegion === "nxt3")  {
+        urlRegion = window.location.host.split('.')[0] + "."  + window.location.host.split('.')[1];
+      }
+      $scope.region = urlRegion;
       // load config.json
 
       $http.get('config.json').then(function(res) {
