@@ -15,6 +15,15 @@ const PROXY_SETTING = {
       "password": ""
     },
   },
+   '/report/rain/images/branding': {
+    target: 'https://demo.lizard.net/',
+    secure: false,
+    changeOrigin: true,
+    "headers": {
+      "username": "",
+      "password": ""
+    },
+   },
   /* '/report/rain': {
    *   target: 'https://demo.lizard.net/',
    *   secure: false,

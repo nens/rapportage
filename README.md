@@ -30,7 +30,7 @@ Before you start on development move the file /app/templates/config.json.develop
 The existing config.json file can be overwritten. The existing file might be a staging or production version (see also under release). 
 
 # start the webpack dev server
-npm start
+./start
 
 # start the test runner in another terminal screen/window
 npm test
@@ -43,26 +43,11 @@ app and sets up the basic html
 PROXY and STAGING
 =================
 
-Proxying to production/staging or deploying to staging is quite cumbersome.
+The rain report on dev proxies to production by default.  
+In order for this to work open the dev server by running the ./start commando so not npm start (see above).  
+I (Tom) have not tested proxying to staging.  
+Currently on staging another rain raster uuid is used then on prod and dev.  The app will automatically detect if it is on staging and use this uuid.  
 
-For now it is not possible to deploy the same version to staging as to production namely:
-The uuid of the rain raster is hardcoded in the root of the config.json.
-When deploying to staging is absolutely required then change to the following line in the config.json:
-"rainRasterStoreUUID":"3e5f56a7-b16e-4deb-8449-cc2c88805159",
-This is the uuid of a rain raster available on staging. So this version will not work on production.
-The same trick needs to be done when proxying to staging.
-
-Proxying in general also requires a username password, but this is not configured in webpack.
-You will need to configure this in webpack manually, but make sure not to commit this to git !
-Below is an example of a proxy username password:
-
-proxy: {
-    '/api/v3': {
-      target: 'https://demo.lizard.net/',
-      secure: false,
-      changeOrigin: true,
-			auth: 'my_username:my_password'
-    },
 
 Releasing
 =========
@@ -71,15 +56,10 @@ Releasing
 Unfortuenedly the config.json file used by the app is sometimes changed directly on the server by advicers.  
 Before making a release it is thus important to retrieve the latest version of the file from the server.  
 This also implicates that a release should only be made right before deploying !
-Also the config.json file for staging is different then for production so both require a seperate release :(  
 
 Use the secure copy command to retrieve the file from the server (need to be authenticated on server).  
-Staging:  
 
-  scp your_username@<staging_server>:/srv/nxt3.staging.lizard.net-clients/rain_report/config.json /home/tomdeboer/dev/rain_report/app/templates/config.json.staging  
-
-Production:
-  scp your_username@<staging_server>:/srv/nxt.lizard.net-clients/rain_report/config.json /home/tomdeboer/dev/rain_report/app/templates/config.json.prod 
+  scp your_username@<production_server>:/srv/nxt.lizard.net-clients/rain_report/config.json /home/tomdeboer/dev/rain_report/app/templates/config.json.prod 
 
 Now move this file to /app/config.json and make the changes you need to it.  
 
