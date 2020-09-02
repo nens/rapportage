@@ -87,7 +87,7 @@
   "sites": {
     "nxt3.staging": {
       "state": {
-        "regionTitle": "nxt3.staging",
+        "regionTitle": "Apeldoorn",
         "bounds": {
           "northeast": {
             "lat": 52.3,
@@ -181,7 +181,7 @@
     },
     "localhost:3000" : {
       "state": {
-        "regionTitle": "localhost:3000",
+        "regionTitle": "Apeldoorn",
         "bounds": {
           "northeast": {
             "lat": 52.3,
