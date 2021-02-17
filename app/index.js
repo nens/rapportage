@@ -40,7 +40,7 @@ app.controller('MainCtrl', [
         $scope.loading = false;
         var config = res.data;
         console.log("scope.region", $scope.region);
-        $scope.region = "apeldoorn";
+        // $scope.region = "apeldoorn";
         var siteConfig = config.sites[$scope.region];
         if (siteConfig) {
           $scope.modalActive = true;

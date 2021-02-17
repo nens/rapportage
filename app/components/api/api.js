@@ -51,10 +51,11 @@ angular.module('api', [])
     return $http.get(url, {withCredentials: true}).then(function (response) {
       if (response.data.data === null) {
         userHasNoRightsToUrlRainRecurrence = url;
+        redirect()
       } else {
         return response.data.data
       }
-    }, function(){ userHasNoRightsToUrlRainRecurrence= url});
+    }, function(){ redirect(); userHasNoRightsToUrlRainRecurrence= url});
   };
 
   var RAIN_BASE_URL = '/api/v3/raster-aggregates/?agg=average&geom='
@@ -92,10 +93,11 @@ angular.module('api', [])
     return $http.get(url, {withCredentials: true}).then(function (response) {
       if (response.data.data === null) {
         userHasNoRightsToUrlMonthlyRain = url;
+        redirect();
       } else {
         return response.data.data;
       }
-    }, function (){ userHasNoRightsToUrlMonthlyRain = url;});
+    }, function (){ redirect(); userHasNoRightsToUrlMonthlyRain = url;});
   };
 
   return {
