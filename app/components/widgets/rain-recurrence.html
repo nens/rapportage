@@ -1,4 +1,5 @@
 <div ng-class="{'print-hidden': !show}">
+  <div ng-if="userHasNoRightsToUrlRainRecurrence">Failed to get following url {{ userHasNoRightsToUrlRainRecurrence }} please contact service-desk</div>
   <div class="row">
     <div class="col-md-12 recurrence recurrence-title" ng-click="toggleContent()" ng-class="{'recurrence-selected': location.title === rainTMax.location}">
       {{ location.title }}

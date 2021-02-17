@@ -17,6 +17,17 @@ angular.module('api', [])
         '/accounts/login/?next=' + window.location.href;
   };
 
+  // $http.get("/bootstrap/lizard/", {withCredentials: true}).then(function (response) {
+  //   if (data && data.user && data.user.authenticated === true) {
+  //     console.log('user logged in')
+  //   } else {
+  //     redirect
+  //   }
+  // }, redirect);
+
+  var userHasNoRightsToUrlRainRecurrence = null;
+  var userHasNoRightsToUrlMonthlyRain = null;
+
   var replaceUuid = function (preUrl, uuid) {
     // replace uuid with staging uuid if on staging
     var url = preUrl;
@@ -39,11 +50,11 @@ angular.module('api', [])
 
     return $http.get(url, {withCredentials: true}).then(function (response) {
       if (response.data.data === null) {
-        redirect();
+        userHasNoRightsToUrlRainRecurrence = url;
       } else {
         return response.data.data
       }
-    }, redirect);
+    }, function(){ userHasNoRightsToUrlRainRecurrence= url});
   };
 
   var RAIN_BASE_URL = '/api/v3/raster-aggregates/?agg=average&geom='
@@ -80,15 +91,18 @@ angular.module('api', [])
 
     return $http.get(url, {withCredentials: true}).then(function (response) {
       if (response.data.data === null) {
-        redirect();
+        userHasNoRightsToUrlMonthlyRain = url;
       } else {
         return response.data.data;
       }
-    }, redirect);
+    }, function (){ userHasNoRightsToUrlMonthlyRain = url;});
   };
 
   return {
     rainRecurrence: rainRecurrence,
-    getMonthlyRain: getMonthlyRain
+    getMonthlyRain: getMonthlyRain,
+    userHasNoRightsToUrlRainRecurrence: userHasNoRightsToUrlRainRecurrence,
+    userHasNoRightsToUrlMonthlyRain: userHasNoRightsToUrlMonthlyRain,
+
   }
 }]);

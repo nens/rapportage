@@ -111,6 +111,7 @@ var rainGraphWidget = ['ApiService', function (ApiService) {
     scope.$watch('monthlyMeans', doChart);
   };
 
+  scope.userHasNoRightsToUrlMonthlyRain = ApiService.userHasNoRightsToUrlMonthlyRain;
   return {
     link: rainGraphWidgetLink,
     replace: true,

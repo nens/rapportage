@@ -37,6 +37,15 @@ const PROXY_SETTING = {
       "username": "",
       "password": ""
     }
+  },
+  '/bootstrap/lizard': {
+    target: 'https://demo.lizard.net/',
+    secure: false,
+    changeOrigin: true,
+    "headers": {
+      "username": "",
+      "password": ""
+    }
   }
 }
 
@@ -50,7 +59,7 @@ if (password && username) {
   });
 } else {
   console.log("Please set PROXY_PASSWORD and PROXY_USERNAME variables!");
-  process.exit(1);
+  // process.exit(1);
 }
 
 const devserver = new WDS(webpack(config), {

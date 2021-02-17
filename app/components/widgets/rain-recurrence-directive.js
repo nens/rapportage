@@ -36,7 +36,7 @@ var rainRecurrence = ['ApiService', 'ExtremeRainService', function (ApiService, 
 
     scope.$watch('date', updateScope);
   };
-
+  scope.userHasNoRightsToUrlRainRecurrence = ApiService.userHasNoRightsToUrlRainRecurrence;
   return {
     link: rainRecurrenceLink,
     replace: true,

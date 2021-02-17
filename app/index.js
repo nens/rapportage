@@ -39,6 +39,8 @@ app.controller('MainCtrl', [
       $http.get('config.json').then(function(res) {
         $scope.loading = false;
         var config = res.data;
+        console.log("scope.region", $scope.region);
+        $scope.region = "apeldoorn";
         var siteConfig = config.sites[$scope.region];
         if (siteConfig) {
           $scope.modalActive = true;
