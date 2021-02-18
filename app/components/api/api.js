@@ -25,7 +25,7 @@ angular.module('api', [])
     if (urlRegion === "nxt3")  {
       urlRegion = window.location.host.split('.')[0] + "."  + window.location.host.split('.')[1];
     }
-    window.location.href = `https://demo.lizard.net/auth/login/?domain=${urlRegion}&next=${nextUrl}`
+    window.location.href = `/auth/login/?domain=${urlRegion}&next=${nextUrl}`
   });
 
   var replaceUuid = function (preUrl, uuid) {
