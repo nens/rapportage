@@ -27,7 +27,7 @@ var rainRecurrence = ['ApiService', 'ExtremeRainService', function (ApiService, 
       })
       .then(function (response) {
         if (!response) {
-          scope.userHasNoRightsToUrlRainRecurrence = `You have no rights for url /api/v3/raster-aggregates/?rasters=${scope.uuid}. `;
+          scope.userHasNoRightsToUrlRainRecurrence = "You have no rights for url /api/v3/raster-aggregates/?rasters="+scope.uuid+". ";
         }
         scope.location.defer.resolve({
           stats: response,
@@ -35,7 +35,7 @@ var rainRecurrence = ['ApiService', 'ExtremeRainService', function (ApiService, 
         });
         scope.recurrenceData = response;
       }, function(){
-        scope.userHasNoRightsToUrlRainRecurrence = `You have no rights for url /api/v3/raster-aggregates/?rasters=${scope.uuid}. `;
+        scope.userHasNoRightsToUrlRainRecurrence = "You have no rights for url /api/v3/raster-aggregates/?rasters="+scope.uuid+". ";
       });
     };
 
