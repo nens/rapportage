@@ -12,20 +12,19 @@ angular.module('api', [])
     'stop={stop_date}&' +
     'window=1200000';
 
+  var redirect = function () {
+    window.location.href = '//' + window.location.host +
+        '/accounts/login/?next=' + window.location.href;
+  };
+
   $http.get("/bootstrap/lizard/", {withCredentials: true}).then(function (data) {
     if (data && data.user && data.user.authenticated === true) {
       console.log('user logged in')
     } else {
-      const nextUrl = window.location.href;
-      window.location.href = `${data.sso.login}&next=${nextUrl}`;
+      redirect();
     }
   }, function(){
-    var urlRegion = window.location.host.split('.')[0];
-    const nextUrl = window.location.href;
-    if (urlRegion === "nxt3")  {
-      urlRegion = window.location.host.split('.')[0] + "."  + window.location.host.split('.')[1];
-    }
-    window.location.href = `/auth/login/?domain=${urlRegion}&next=${nextUrl}`
+    redirect();
   });
 
   var replaceUuid = function (preUrl, uuid) {

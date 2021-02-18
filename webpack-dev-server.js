@@ -29,6 +29,15 @@ const PROXY_SETTING = {
    *   secure: false,
    *   changeOrigin: true
    * },*/
+  '/auth/login': {
+    target: 'https://demo.lizard.net/',
+    secure: false,
+    changeOrigin: true,
+    "headers": {
+      "username": "",
+      "password": ""
+    }
+  },
   '/accounts/login': {
     target: 'https://demo.lizard.net/',
     secure: false,
