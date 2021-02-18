@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.6.53"></a>
+## [1.6.53](https://github.com/nens/rain_report/compare/v1.6.52...v1.6.53) (2021-02-18)
+
+
+
 <a name="1.6.52"></a>
 ## [1.6.52](https://github.com/nens/rain_report/compare/v1.6.51...v1.6.52) (2021-02-18)
 
