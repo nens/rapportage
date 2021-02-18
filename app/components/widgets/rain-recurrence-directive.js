@@ -26,17 +26,22 @@ var rainRecurrence = ['ApiService', 'ExtremeRainService', function (ApiService, 
         stop: stop
       })
       .then(function (response) {
+        if (!response) {
+          scope.userHasNoRightsToUrlRainRecurrence = `You have no rights for url /api/v3/raster-aggregates/?rasters=${scope.uuid}. `;
+        }
         scope.location.defer.resolve({
           stats: response,
           location: scope.location
         });
         scope.recurrenceData = response;
+      }, function(){
+        scope.userHasNoRightsToUrlRainRecurrence = `You have no rights for url /api/v3/raster-aggregates/?rasters=${scope.uuid}. `;
       });
     };
 
     scope.$watch('date', updateScope);
   };
-  scope.userHasNoRightsToUrlRainRecurrence = ApiService.userHasNoRightsToUrlRainRecurrence;
+  
   return {
     link: rainRecurrenceLink,
     replace: true,

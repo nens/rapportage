@@ -34,6 +34,9 @@ var rainGraphWidget = ['ApiService', function (ApiService) {
       if (scope.bounds && scope.year && scope.monthlyMeans) {
         ApiService.getMonthlyRain(scope.bounds, scope.year, scope.uuid)
           .then(function (data) {
+            if (!data) {
+              scope.userHasNoRightsToUrlMonthlyRain = `You have no rights for url /api/v3/raster-aggregates/?rasters=${scope.uuid}. `;
+            }
             d3.select(elem[0].children[0])
             .datum([{
               'key': 'Meerjaarlijks gemiddelde',
@@ -82,6 +85,8 @@ var rainGraphWidget = ['ApiService', function (ApiService) {
               'values': data
             }])
             .call(chartPrint);
+          }, function(){
+            scope.userHasNoRightsToUrlMonthlyRain = `You have no rights for url /api/v3/raster-aggregates/?rasters=${scope.uuid}. `;
           }
         );
       }
@@ -111,7 +116,7 @@ var rainGraphWidget = ['ApiService', function (ApiService) {
     scope.$watch('monthlyMeans', doChart);
   };
 
-  scope.userHasNoRightsToUrlMonthlyRain = ApiService.userHasNoRightsToUrlMonthlyRain;
+  
   return {
     link: rainGraphWidgetLink,
     replace: true,

@@ -1,5 +1,5 @@
 <div ng-class="{'print-hidden': !show}">
-  <div ng-if="userHasNoRightsToUrlRainRecurrence">Failed to get following url {{ userHasNoRightsToUrlRainRecurrence }} please contact service-desk</div>
+  <div ng-if="userHasNoRightsToUrlRainRecurrence">{{ userHasNoRightsToUrlRainRecurrence }}<a href="https://nelen-schuurmans.topdesk.net/tas/public/ssp" target="_blank" rel="noopener noreferrer">Please contact service desk</a></div>
   <div class="row">
     <div class="col-md-12 recurrence recurrence-title" ng-click="toggleContent()" ng-class="{'recurrence-selected': location.title === rainTMax.location}">
       {{ location.title }}

@@ -38,15 +38,15 @@ const PROXY_SETTING = {
       "password": ""
     }
   },
-  // '/bootstrap/lizard': {
-  //   target: 'https://demo.lizard.net/',
-  //   secure: false,
-  //   changeOrigin: true,
-  //   "headers": {
-  //     "username": "",
-  //     "password": ""
-  //   }
-  // }
+  '/bootstrap/lizard': {
+    target: 'https://demo.lizard.net/',
+    secure: false,
+    changeOrigin: true,
+    "headers": {
+      "username": "",
+      "password": ""
+    }
+  }
 }
 
 const password = process.env.PROXY_PASSWORD;

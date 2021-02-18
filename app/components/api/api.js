@@ -12,21 +12,21 @@ angular.module('api', [])
     'stop={stop_date}&' +
     'window=1200000';
 
-  var redirect = function () {
-    window.location.href = '//' + window.location.host +
-        '/accounts/login/?next=' + window.location.href;
-  };
-
-  // $http.get("/bootstrap/lizard/", {withCredentials: true}).then(function (response) {
-  //   if (data && data.user && data.user.authenticated === true) {
-  //     console.log('user logged in')
-  //   } else {
-  //     redirect
-  //   }
-  // }, redirect);
-
-  var userHasNoRightsToUrlRainRecurrence = null;
-  var userHasNoRightsToUrlMonthlyRain = null;
+  $http.get("/bootstrap/lizard/", {withCredentials: true}).then(function (data) {
+    if (data && data.user && data.user.authenticated === true) {
+      console.log('user logged in')
+    } else {
+      const nextUrl = window.location.href;
+      window.location.href = `${data.sso.login}&next=${nextUrl}`;
+    }
+  }, function(){
+    var urlRegion = window.location.host.split('.')[0];
+    const nextUrl = window.location.href;
+    if (urlRegion === "nxt3")  {
+      urlRegion = window.location.host.split('.')[0] + "."  + window.location.host.split('.')[1];
+    }
+    window.location.href = `https://demo.lizard.net/auth/login/?domain=${urlRegion}&next=${nextUrl}`
+  });
 
   var replaceUuid = function (preUrl, uuid) {
     // replace uuid with staging uuid if on staging
@@ -49,13 +49,8 @@ angular.module('api', [])
     var url = replaceUuid(preUrl, uuid);
 
     return $http.get(url, {withCredentials: true}).then(function (response) {
-      if (response.data.data === null) {
-        userHasNoRightsToUrlRainRecurrence = url;
-        redirect()
-      } else {
-        return response.data.data
-      }
-    }, function(){ redirect(); userHasNoRightsToUrlRainRecurrence= url});
+      return response.data.data
+    });
   };
 
   var RAIN_BASE_URL = '/api/v3/raster-aggregates/?agg=average&geom='
@@ -88,23 +83,13 @@ angular.module('api', [])
 
     var url = replaceUuid(preUrl, uuid);
 
-    console.log('url', url);
-
     return $http.get(url, {withCredentials: true}).then(function (response) {
-      if (response.data.data === null) {
-        userHasNoRightsToUrlMonthlyRain = url;
-        redirect();
-      } else {
-        return response.data.data;
-      }
-    }, function (){ redirect(); userHasNoRightsToUrlMonthlyRain = url;});
+      return response.data.data;
+    });
   };
 
   return {
     rainRecurrence: rainRecurrence,
     getMonthlyRain: getMonthlyRain,
-    userHasNoRightsToUrlRainRecurrence: userHasNoRightsToUrlRainRecurrence,
-    userHasNoRightsToUrlMonthlyRain: userHasNoRightsToUrlMonthlyRain,
-
   }
 }]);
