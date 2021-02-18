@@ -17,6 +17,20 @@ angular.module('api', [])
         '/accounts/login/?next=' + window.location.href;
   };
 
+  $http.get("/bootstrap/lizard/", {withCredentials: true})
+  .then(function (data) { return data.data})
+  .then(function(data){
+    if (data && data.user && data.user.authenticated === true) {
+      console.log('bootstrap user logged in')
+    } else {
+      console.log('bootstrap user Not logged in', data)
+      redirect();
+    }
+  }, function(){
+    console.log('bootstrap api call failed')
+    redirect();
+  });
+
   var replaceUuid = function (preUrl, uuid) {
     // replace uuid with staging uuid if on staging
     var url = preUrl;
@@ -38,12 +52,8 @@ angular.module('api', [])
     var url = replaceUuid(preUrl, uuid);
 
     return $http.get(url, {withCredentials: true}).then(function (response) {
-      if (response.data.data === null) {
-        redirect();
-      } else {
-        return response.data.data
-      }
-    }, redirect);
+      return response.data.data
+    });
   };
 
   var RAIN_BASE_URL = '/api/v3/raster-aggregates/?agg=average&geom='
@@ -76,19 +86,13 @@ angular.module('api', [])
 
     var url = replaceUuid(preUrl, uuid);
 
-    console.log('url', url);
-
     return $http.get(url, {withCredentials: true}).then(function (response) {
-      if (response.data.data === null) {
-        redirect();
-      } else {
-        return response.data.data;
-      }
-    }, redirect);
+      return response.data.data;
+    });
   };
 
   return {
     rainRecurrence: rainRecurrence,
-    getMonthlyRain: getMonthlyRain
+    getMonthlyRain: getMonthlyRain,
   }
 }]);
