@@ -35,7 +35,7 @@ var rainGraphWidget = ['ApiService', function (ApiService) {
         ApiService.getMonthlyRain(scope.bounds, scope.year, scope.uuid)
           .then(function (data) {
             if (!data) {
-              scope.userHasNoRightsToUrlMonthlyRain = `You have no rights for url /api/v3/raster-aggregates/?rasters=${scope.uuid}. `;
+              scope.userHasNoRightsToUrlMonthlyRain = "You have no rights for url /api/v3/raster-aggregates/?rasters="+scope.uuid+". ";
             }
             d3.select(elem[0].children[0])
             .datum([{
@@ -86,7 +86,7 @@ var rainGraphWidget = ['ApiService', function (ApiService) {
             }])
             .call(chartPrint);
           }, function(){
-            scope.userHasNoRightsToUrlMonthlyRain = `You have no rights for url /api/v3/raster-aggregates/?rasters=${scope.uuid}. `;
+            scope.userHasNoRightsToUrlMonthlyRain = "You have no rights for url /api/v3/raster-aggregates/?rasters="+scope.uuid+". ";
           }
         );
       }
