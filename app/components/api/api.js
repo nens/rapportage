@@ -17,13 +17,17 @@ angular.module('api', [])
         '/accounts/login/?next=' + window.location.href;
   };
 
-  $http.get("/bootstrap/lizard/", {withCredentials: true}).then(function (data) {
+  $http.get("/bootstrap/lizard/", {withCredentials: true})
+  .then(function (data) { return data.data})
+  .then(function(data){
     if (data && data.user && data.user.authenticated === true) {
-      console.log('user logged in')
+      console.log('bootstrap user logged in')
     } else {
+      console.log('bootstrap user Not logged in', data)
       redirect();
     }
   }, function(){
+    console.log('bootstrap api call failed')
     redirect();
   });
 
