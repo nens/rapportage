@@ -87,7 +87,9 @@ var leafletMap = function () {
         var updateRainLayer = function (start, stop) {
           // determine the timedelta and time
           var timeDelta = stop - start;
-          var time = start.toISOString() + '/' + stop.toISOString();
+          // remove stop string
+          // https://github.com/nens/rain_report/issues/39
+          var time = start.toISOString(); // + '/' + stop.toISOString();
 
           // determine temporalsum wrapper and corresponding style
           if (timeDelta < mapConfig.cutOffs.fiveMinuteCutOff) {
