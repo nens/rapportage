@@ -1,0 +1,797 @@
+{
+  "defaults" : {
+    "rainRasterStoreUUID":"730d6675",
+    "wmsUrl": "/api/v3/wms/?",
+    "tmsUrl": "https://api.mapbox.com/styles/v1/nelenschuurmans/ck8sgpk8h25ql1io2ccnueuj6/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibmVsZW5zY2h1dXJtYW5zIiwiYSI6ImNrZWlnbHdycjFqNHMyem95cWFqNzhkc3IifQ.ymzd92iqviR5RZ-dd-xRIg",
+    "cutOffs": {
+      "fiveMinuteCutOff": 300001,
+      "hourCutOff": 7200000,
+      "dayCutOff": 172800000,
+      "monthCutOff": 2419200000
+    },
+    "colorMaps":{
+      "fiveMin": {
+        "type": "GradientColormap",
+        "free": false,
+        "log": true,
+        "data": [
+            [0.0009, [255, 255, 255,   0]],
+            [0.0010, [255, 255, 255,  26]],
+            [0.0100, [189, 195, 199, 255]],
+            [0.0500, [ 52, 152, 219, 255]],
+            [0.2000, [ 41, 128, 185, 255]],
+            [0.5000, [141, 162, 100, 255]],
+            [1.0000, [241, 196,  15, 255]],
+            [1.5000, [231,  76,  60, 255]],
+            [2.5000, [193,  82, 121, 255]],
+            [5.0000, [155,  89, 182, 255]],
+            [6.0000, [155,  89, 182, 255]]
+        ]
+      },
+      "hour": {
+        "type": "GradientColormap",
+        "free": false,
+        "log": true,
+        "data": [
+            [ 0.019, [255, 255, 255,   0]],
+            [ 0.020, [255, 255, 255,  26]],
+            [ 0.200, [189, 195, 199, 255]],
+            [ 0.500, [ 52, 152, 219, 255]],
+            [ 1.000, [ 41, 128, 185, 255]],
+            [ 2.500, [141, 162, 100, 255]],
+            [ 5.000, [241, 196,  15, 255]],
+            [ 7.500, [231,  76,  60, 255]],
+            [15.000, [193,  82, 121, 255]],
+            [30.000, [155,  89, 182, 255]],
+            [31.000, [155,  89, 182, 255]]
+        ]
+      },
+      "day": {
+        "type": "GradientColormap",
+        "free": false,
+        "log": true,
+        "data": [
+            [ 0.049, [255, 255, 255,   0]],
+            [ 0.050, [255, 255, 255,  26]],
+            [ 0.500, [189, 195, 199, 255]],
+            [ 2.000, [ 52, 152, 219, 255]],
+            [ 2.500, [ 41, 128, 185, 255]],
+            [ 5.000, [141, 162, 100, 255]],
+            [10.000, [241, 196,  15, 255]],
+            [20.000, [231,  76,  60, 255]],
+            [30.000, [193,  82, 121, 255]],
+            [50.000, [155,  89, 182, 255]],
+            [51.000, [155,  89, 182, 255]]
+        ]
+      },
+      "month": {
+        "type": "GradientColormap",
+        "free": false,
+        "log": true,
+        "data": [
+          [4.9, [255, 255, 255,   0]],
+          [  5, [255, 255, 255,  26]],
+          [ 10, [189, 195, 199, 255]],
+          [ 25, [ 52, 152, 219, 255]],
+          [ 40, [ 41, 128, 185, 255]],
+          [ 55, [141, 162, 100, 255]],
+          [ 70, [241, 196,  15, 255]],
+          [ 85, [231,  76,  60, 255]],
+          [ 90, [193,  82, 121, 255]],
+          [100, [155,  89, 182, 255]],
+          [101, [155,  89, 182, 255]]
+        ]
+      }
+    }
+},
+  "sites": {
+    "nxt3.staging": {
+      "state": {
+        "regionTitle": "Apeldoorn",
+        "bounds": {
+          "northeast": {
+            "lat": 52.3,
+            "lng": 6.0
+          },
+          "southwest": {
+            "lat": 52.1,
+            "lng": 5.8
+          }
+        }
+      },
+      "monthlyMeans": [
+        69,
+        56,
+        66,
+        42,
+        61,
+        65,
+        81,
+        72,
+        78,
+        82,
+        79,
+        75
+      ],
+      "locations": [
+        {
+          "title": "Stadsdeel NoordOost",
+          "geometry": {
+            "lng": 5.9987068,
+            "lat": 52.2266165
+          }
+        },
+        {
+          "title": "Stadsdeel ZuidOost",
+          "geometry": {
+            "lng": 5.9999084,
+            "lat": 52.1986642
+          }
+        },
+        {
+          "title": "Stadsdeel ZuidWest",
+          "geometry": {
+            "lng": 5.9569073,
+            "lat": 52.1902462
+          }
+        },
+        {
+          "title": "Stadsdeel NoordWest",
+          "geometry": {
+            "lng": 5.9397411,
+            "lat": 52.2198076
+          }
+        },
+        {
+          "title": "Centrum",
+          "geometry": {
+            "lng": 5.9630442,
+            "lat": 52.2129713
+          }
+        },
+        {
+          "title": "Beekbergen",
+          "geometry": {
+            "lng": 5.9650183,
+            "lat": 52.1613233
+          }
+        },
+        {
+          "title": "Uddel",
+          "geometry": {
+            "lng": 5.7817268,
+            "lat": 52.2588068
+          }
+        },
+        {
+          "title": "Hoenderlo",
+          "geometry": {
+            "lng": 5.8806038,
+            "lat": 52.118075
+          }
+        },
+        {
+          "title": "Loenen",
+          "geometry": {
+            "lng": 6.0208082,
+            "lat": 52.1171791
+          }
+        }
+      ]
+    },
+    "localhost:3000" : {
+      "state": {
+        "regionTitle": "Apeldoorn",
+        "bounds": {
+          "northeast": {
+            "lat": 52.3,
+            "lng": 6.0
+          },
+          "southwest": {
+            "lat": 52.1,
+            "lng": 5.8
+          }
+        }
+      },
+      "monthlyMeans": [
+        69,
+        56,
+        66,
+        42,
+        61,
+        65,
+        81,
+        72,
+        78,
+        82,
+        79,
+        75
+      ],
+      "locations": [
+        {
+          "title": "Stadsdeel NoordOost",
+          "geometry": {
+            "lng": 5.9987068,
+            "lat": 52.2266165
+          }
+        },
+        {
+          "title": "Stadsdeel ZuidOost",
+          "geometry": {
+            "lng": 5.9999084,
+            "lat": 52.1986642
+          }
+        },
+        {
+          "title": "Stadsdeel ZuidWest",
+          "geometry": {
+            "lng": 5.9569073,
+            "lat": 52.1902462
+          }
+        },
+        {
+          "title": "Stadsdeel NoordWest",
+          "geometry": {
+            "lng": 5.9397411,
+            "lat": 52.2198076
+          }
+        },
+        {
+          "title": "Centrum",
+          "geometry": {
+            "lng": 5.9630442,
+            "lat": 52.2129713
+          }
+        },
+        {
+          "title": "Beekbergen",
+          "geometry": {
+            "lng": 5.9650183,
+            "lat": 52.1613233
+          }
+        },
+        {
+          "title": "Uddel",
+          "geometry": {
+            "lng": 5.7817268,
+            "lat": 52.2588068
+          }
+        },
+        {
+          "title": "Hoenderlo",
+          "geometry": {
+            "lng": 5.8806038,
+            "lat": 52.118075
+          }
+        },
+        {
+          "title": "Loenen",
+          "geometry": {
+            "lng": 6.0208082,
+            "lat": 52.1171791
+          }
+        }
+      ]
+    },
+    "apeldoorn": {
+      "state": {
+        "regionTitle": "Apeldoorn",
+        "bounds": {
+          "northeast": {
+            "lat": 52.3,
+            "lng": 6.0
+          },
+          "southwest": {
+            "lat": 52.1,
+            "lng": 5.8
+          }
+        }
+      },
+      "monthlyMeans": [
+        69,
+        56,
+        66,
+        42,
+        61,
+        65,
+        81,
+        72,
+        78,
+        82,
+        79,
+        75
+      ],
+      "locations": [
+        {
+          "title": "Stadsdeel NoordOost",
+          "geometry": {
+            "lng": 5.9987068,
+            "lat": 52.2266165
+          }
+        },
+        {
+          "title": "Stadsdeel ZuidOost",
+          "geometry": {
+            "lng": 5.9999084,
+            "lat": 52.1986642
+          }
+        },
+        {
+          "title": "Stadsdeel ZuidWest",
+          "geometry": {
+            "lng": 5.9569073,
+            "lat": 52.1902462
+          }
+        },
+        {
+          "title": "Stadsdeel NoordWest",
+          "geometry": {
+            "lng": 5.9397411,
+            "lat": 52.2198076
+          }
+        },
+        {
+          "title": "Centrum",
+          "geometry": {
+            "lng": 5.9630442,
+            "lat": 52.2129713
+          }
+        },
+        {
+          "title": "Beekbergen",
+          "geometry": {
+            "lng": 5.9650183,
+            "lat": 52.1613233
+          }
+        },
+        {
+          "title": "Uddel",
+          "geometry": {
+            "lng": 5.7817268,
+            "lat": 52.2588068
+          }
+        },
+        {
+          "title": "Hoenderlo",
+          "geometry": {
+            "lng": 5.8806038,
+            "lat": 52.118075
+          }
+        },
+        {
+          "title": "Loenen",
+          "geometry": {
+            "lng": 6.0208082,
+            "lat": 52.1171791
+          }
+        }
+      ]
+    },
+    "alkmaar": {
+      "state": {
+        "regionTitle": "Alkmaar",
+        "bounds": {
+          "northeast": {
+            "lat": 52.7,
+            "lng": 4.9
+          },
+          "southwest": {
+            "lat": 52.5,
+            "lng": 4.6
+          }
+        }
+      },
+      "monthlyMeans": [
+        69,
+        56,
+        66,
+        42,
+        61,
+        65,
+        81,
+        72,
+        78,
+        82,
+        79,
+        75
+      ],
+      "locations": [
+        {
+          "title": "Zuid",
+          "geometry": {
+            "lng": 4.73759332,
+            "lat": 52.6244606
+          }
+        },
+        {
+          "title": "Oudorp",
+          "geometry": {
+            "lng": 4.77241651,
+            "lat": 52.63827949
+          }
+        },
+        {
+          "title": "Overdie",
+          "geometry": {
+            "lng": 4.75166866,
+            "lat": 52.60905153
+          }
+        },
+        {
+          "title": "West",
+          "geometry": {
+            "lng": 4.72708257,
+            "lat": 52.64386021
+          }
+        },
+        {
+          "title": "Huiswaard/De Mare",
+          "geometry": {
+            "lng": 4.75814669,
+            "lat": 52.65267433
+          }
+        },
+        {
+          "title": "Daalmeer/Koedijk",
+          "geometry": {
+            "lng": 4.76351137,
+            "lat": 52.67245647
+          }
+        },
+        {
+          "title": "Centrum",
+          "geometry": {
+            "lng": 4.74754611,
+            "lat": 52.63267504
+          }
+        },
+        {
+          "title": "Stompetoren",
+          "geometry": {
+            "lng": 4.82304838,
+            "lat": 52.61373467
+          }
+        },
+        {
+          "title": "De Rijp",
+          "geometry": {
+            "lng": 4.84565639,
+            "lat": 52.55464033
+          }
+        },
+        {
+          "title": "Schermerhorn",
+          "geometry": {
+            "lng": 4.89220774,
+            "lat": 52.59919587
+          }
+        },
+        {
+          "title": "Zuidschermer",
+          "geometry": {
+            "lng": 4.77960535,
+            "lat": 52.58518346
+          }
+        }
+      ]
+    },
+    "rotterdam": {
+      "state": {
+        "regionTitle": "Rotterdam",
+        "bounds": {
+          "northeast": {
+            "lat": 52.0,
+            "lng": 4.6
+          },
+          "southwest": {
+            "lat": 51.8,
+            "lng": 4.0
+          }
+        }
+      },
+      "monthlyMeans": [
+        69,
+        56,
+        66,
+        42,
+        61,
+        65,
+        81,
+        72,
+        78,
+        82,
+        79,
+        75
+      ],
+      "locations": [
+        {
+          "title": "Beverwaard",
+          "geometry": {
+            "lng": 4.5718889647,
+            "lat": 51.8929162028
+          }
+        },
+        {
+          "title": "Blijdorp",
+          "geometry": {
+            "lng": 4.4587372083,
+            "lat": 51.9290398159
+          }
+        },
+        {
+          "title": "Botlek",
+          "geometry": {
+            "lng": 4.2588750955,
+            "lat": 51.8825718824
+          }
+        },
+        {
+          "title": "Brainpark III",
+          "geometry": {
+            "lng": 4.5382767396,
+            "lat": 51.9175120614
+          }
+        },
+        {
+          "title": "Carnisse",
+          "geometry": {
+            "lng": 4.4840640729,
+            "lat": 51.8881179964
+          }
+        },
+        {
+          "title": "Centrum",
+          "geometry": {
+            "lng": 4.4765597004,
+            "lat": 51.9121027594
+          }
+        },
+        {
+          "title": "Charlois",
+          "geometry": {
+            "lng": 4.4695241079,
+            "lat": 51.8925575999
+          }
+        },
+        {
+          "title": "Europoort",
+          "geometry": {
+            "lng": 4.1758488945,
+            "lat": 51.9238256527
+          }
+        },
+        {
+          "title": "Groot IJsselmonde",
+          "geometry": {
+            "lng": 4.5415009831,
+            "lat": 51.8843558566
+          }
+        },
+        {
+          "title": "Het Lage Land",
+          "geometry": {
+            "lng": 4.5572135408,
+            "lat": 51.9399253431
+          }
+        },
+        {
+          "title": "Heyplaat en Pieren",
+          "geometry": {
+            "lng": 4.4398453044,
+            "lat": 51.8791181185
+          }
+        },
+        {
+          "title": "Hillegersberg",
+          "geometry": {
+            "lng": 4.5004383739,
+            "lat": 51.957473756
+          }
+        },
+        {
+          "title": "IJsselmonde Dorp",
+          "geometry": {
+            "lng": 4.5519653623,
+            "lat": 51.898278051
+          }
+        },
+        {
+          "title": "Kaapweg",
+          "geometry": {
+            "lng": 4.1313950644,
+            "lat": 51.9876711102
+          }
+        },
+        {
+          "title": "Kralingseveer",
+          "geometry": {
+            "lng": 4.5545695468,
+            "lat": 51.9104945118
+          }
+        },
+        {
+          "title": "Krimsloot",
+          "geometry": {
+            "lng": 4.1435819382,
+            "lat": 51.9741273823
+          }
+        },
+        {
+          "title": "Lombardijen",
+          "geometry": {
+            "lng": 4.5215523164,
+            "lat": 51.8764227109
+          }
+        },
+        {
+          "title": "Maasvlakte",
+          "geometry": {
+            "lng": 4.0190536219,
+            "lat": 51.9409816694
+          }
+        },
+        {
+          "title": "Meeuwenplaat",
+          "geometry": {
+            "lng": 4.3554517062,
+            "lat": 51.8608367064
+          }
+        },
+        {
+          "title": "Nesselande",
+          "geometry": {
+            "lng": 4.5875106008,
+            "lat": 51.9799416428
+          }
+        },
+        {
+          "title": "Noorden",
+          "geometry": {
+            "lng": 4.4847652474,
+            "lat": 51.9310294443
+          }
+        },
+        {
+          "title": "Ommoord",
+          "geometry": {
+            "lng": 4.5475906851,
+            "lat": 51.9584228506
+          }
+        },
+        {
+          "title": "Oost-Abtspolder",
+          "geometry": {
+            "lng": 4.4093659787,
+            "lat": 51.9435930953
+          }
+        },
+        {
+          "title": "Oosten",
+          "geometry": {
+            "lng": 4.4951243566,
+            "lat": 51.9255319122
+          }
+        },
+        {
+          "title": "Oud Mathenesse",
+          "geometry": {
+            "lng": 4.4232049382,
+            "lat": 51.9186887655
+          }
+        },
+        {
+          "title": "Oudeland",
+          "geometry": {
+            "lng": 4.3626802415,
+            "lat": 51.8674676185
+          }
+        },
+        {
+          "title": "Overschie",
+          "geometry": {
+            "lng": 4.4333490435,
+            "lat": 51.9350119143
+          }
+        },
+        {
+          "title": "Pendrecht",
+          "geometry": {
+            "lng": 4.4788185449,
+            "lat": 51.8740965627
+          }
+        },
+        {
+          "title": "Pernis",
+          "geometry": {
+            "lng": 4.3894017165,
+            "lat": 51.8882416755
+          }
+        },
+        {
+          "title": "Prinsenland",
+          "geometry": {
+            "lng": 4.5477176585,
+            "lat": 51.9252492665
+          }
+        },
+        {
+          "title": "Rozenburg",
+          "geometry": {
+            "lng": 4.2350778247,
+            "lat": 51.9118707779
+          }
+        },
+        {
+          "title": "Schiebroek",
+          "geometry": {
+            "lng": 4.4719058023,
+            "lat": 51.9565540123
+          }
+        },
+        {
+          "title": "'s-Gravenhof",
+          "geometry": {
+            "lng": 4.5231955603,
+            "lat": 51.9204589366
+          }
+        },
+        {
+          "title": "Spaanse Polder",
+          "geometry": {
+            "lng": 4.4138102148,
+            "lat": 51.9282285499
+          }
+        },
+        {
+          "title": "Spangen",
+          "geometry": {
+            "lng": 4.4310899245,
+            "lat": 51.9141661719
+          }
+        },
+        {
+          "title": "Tussendijken",
+          "geometry": {
+            "lng": 4.4461408051,
+            "lat": 51.9050711965
+          }
+        },
+        {
+          "title": "Vondelingenplaat",
+          "geometry": {
+            "lng": 4.3716692532,
+            "lat": 51.8836504137
+          }
+        },
+        {
+          "title": "Westen",
+          "geometry": {
+            "lng": 4.4547624006,
+            "lat": 51.9129586035
+          }
+        },
+        {
+          "title": "Zevenkamp",
+          "geometry": {
+            "lng": 4.5741253937,
+            "lat": 51.9619246676
+          }
+        },
+        {
+          "title": "Zuiden",
+          "geometry": {
+            "lng": 4.5008398244,
+            "lat": 51.8986077986
+          }
+        },
+        {
+          "title": "Zuiderpark",
+          "geometry": {
+            "lng": 4.4887545942,
+            "lat": 51.8841949479
+          }
+        }
+      ]
+    }
+  }
+}
