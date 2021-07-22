@@ -1,6 +1,6 @@
 {
   "name": "rain_report",
-  "version": "1.6.55",
+  "version": "1.6.56",
   "description": "reporting for municipalities",
   "main": "index.js",
   "scripts": {
